@@ -48,8 +48,8 @@
 			
 			<ul id="main_menu_right" class="main_menu">
 				<li id="mm_meusdados" class="mm_primeiro"><a href="#">Pessoal</a>
-						<ul class="main_submenu" id="main_submenu_meusdados">
-						<li><a href="#">Testando item de menu</a></li>
+					<ul class="main_submenu" id="main_submenu_meusdados">
+						<li><a href="<?php echo base_url('usuarios/listar'); ?>">Testando listar usuários</a></li>
 						<li><a href="#">Testando item de menu</a></li>
 						<li><a href="#">Testando item de menu</a></li>
 						<li><a href="#">Testando item de menu</a></li>

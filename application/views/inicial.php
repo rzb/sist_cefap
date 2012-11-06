@@ -104,8 +104,5 @@
 	<!-- misc -->	
 		
 		<div><i class="icon-trash"></i><i class="icon-plus"></i><i class="icon-forward"></i>teste de icons</div>
-		
-		
-	
-	</div><!-- end main_content -->
-</div><!-- end content -->
+
+</div><!-- end main_content -->
