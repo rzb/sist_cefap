@@ -13,7 +13,7 @@ class Usuario extends DataMapper {
 				array(
 						'field'   => 'username',
 						'label'   => 'Username',
-						'rules'   => array('required')
+						'rules'   => array('required', 'unique')
 				), // checar se username é único
 				array(
 						'field'   => 'senha',
@@ -88,7 +88,7 @@ class Usuario extends DataMapper {
 				array(
 						'field'		=> 'email',
 						'label'		=> 'E-mail',
-						'rules'		=> array('required','valid_email')
+						'rules'		=> array('required', 'valid_email', 'unique')
 				),
 				array(
 						'field'		=> 'nivel_academico',
