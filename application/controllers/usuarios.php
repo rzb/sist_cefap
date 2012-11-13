@@ -22,8 +22,6 @@ class Usuarios extends CI_Controller {
 		// um superadministrador pode fazer o cadastro de quantos usuários quiser, enquanto usuários comuns e administradores só podem registrar a si mesmos
 		// uma vez registrados e logados, comuns e administradores não terão mais acesso ao formulário de cadastro
 		
-		$data['title'] = 'Cadastro de Usuário';
-		
 		if ($this->input->post('submit')) {
 			/* 
 			 * 1- gravar usuário no banco
@@ -93,6 +91,7 @@ class Usuarios extends CI_Controller {
 			
 		}
 		
+		$data['title'] = 'Cadastro de Usuário';
 		$this->load->view('usuario_adicionar', $data);
 		
 	}
@@ -102,11 +101,11 @@ class Usuarios extends CI_Controller {
 		$u = new Usuario();
 		
 		// se o segmento 3 existe e é uma key válida cadastrada para um usuário do banco, ativa o usuário
-		if($this->uri->segment(3) && $u->where('key', $this->uri->segment(3))->count()) {
+		if($this->uri->segment(3) && $u->where('key', $this->uri->segment(3))->count() > 0) {
 			
 			$key = $this->uri->segment(3);
 			
-			$u->where('key', $this->uri->segment(3))->update('status', STATUS_USUARIO_ATIVO);
+			$u->where('key', $key)->update('status', STATUS_USUARIO_ATIVO);
 			
 			$data['title'] = "Cadastro Confirmado";
 			// @TODO preparar $data['msg'] para ser mostrada na view
@@ -118,6 +117,94 @@ class Usuarios extends CI_Controller {
 		}
 		
 	}
+	
+	public function editar() {
+		
+		$u = new Usuario();
+		if($this->uri->segment(3) && $u->where('id', $this->uri->segment(3))->count() > 0) {
+			
+			$u->where('id', $this->uri->segment(3))->get();
+			
+			if ($this->input->post('submit')) {
+
+				$post = $this->input->post(NULL, TRUE); // returns all POST items with XSS filter
+					
+				$u->username 		= $post['username'];
+				$u->nome			= $post['nome'];
+				$u->sobrenome		= $post['sobrenome'];
+				$u->endereco		= $post['endereco'];
+				$u->cidade			= $post['cidade'];
+				$u->uf				= $post['uf'];
+				$u->instituicao		= $post['instituicao'];
+				$u->departamento	= $post['departamento'];
+				$u->data_nascimento	= $post['data_nascimento'];
+				$u->email			= $post['email'];
+				$u->celular			= isset($post['celular']) ? $post['celular'] : null;
+				$u->telefone		= $post['telefone'];
+				$u->cpf				= $post['cpf'];
+				$u->tipo			= $post['tipo'];
+				$u->newsletter		= isset($post['newsletter']) ? $post['newsletter'] : NEWSLETTER_NAO_RECEBE;
+				$u->cep				= $post['cep'];
+					
+				if( !$u->save() ) { // error on update
+			
+					if ( $u->valid ) { // validation ok; database error on insert or update
+							
+						$data['msg'] = '<strong>Erro na gravação no banco de dados.</strong><br />Tente novamente e, se o problema persistir, notifique o administrador do sistema.';
+						$data['msg_type'] = 'error';
+							
+					} else { // validation error
+							
+						$data['msg'] = $u->error->string;
+						$data['msg_type'] = 'error';
+							
+					}
+			
+				} else { // success
+			
+					$data['msg'] = 'Dados atualizados com sucesso.';
+					$data['msg_type'] = 'success';
+			
+				}
+					
+			}
+			
+			$data['u'] = $u;
+			$data['title'] = 'Edição de Usuário';
+			$this->load->view('usuario_editar', $data);
+			
+		} else {
+			redirect(base_url("/main/"));
+		}
+		
+	}
+	
+	public function trocar_senha() {
+		
+	}
+	
+    public function login() {
+        // Create user object
+        $u = new Usuario();
+		$post = $this->input->post(NULL, TRUE); // returns all POST items with XSS filter
+		
+        // Put user supplied data into user object
+        // (no need to validate the post variables in the controller,
+        // if you've set your DataMapper models up with validation rules)
+        $u->username = $post['username'];
+        $u->senha	 = $post['senha'];
+
+        // Attempt to log user in with the data they supplied, using the login function setup in the User model
+        // You might want to have a quick look at that login function up the top of this page to see how it authenticates the user
+        if ($u->login()) {
+            echo '<p>Welcome ' . $u->username . '!</p>';
+            echo '<p>You have successfully logged in so now we know that your email is ' . $u->email . '.</p>';
+        }
+        else {
+            // Show the custom login error message
+            echo '<p>' . $u->error->login . '</p>';
+        }
+    }
 	
 }
 

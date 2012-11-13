@@ -3,6 +3,8 @@
 		<h2>Agendamentos » <span>Novo agendamento</span></h2>
 	<?php echo set_breadcrumb(); ?>
 	
+	<?php $this->load->view('login'); ?>;
+	
 	<!-- tabela -->
 	
 	<div class="well">

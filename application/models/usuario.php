@@ -11,89 +11,89 @@ class Usuario extends DataMapper {
 	// @TODO terminar validação
 	public $validation = array(
 				array(
-						'field'   => 'username',
-						'label'   => 'Username',
-						'rules'   => array('required', 'unique')
+						'field'	=> 'username',
+						'label'	=> 'Username',
+						'rules'	=> array('required', 'unique')
 				), // checar se username é único
 				array(
-						'field'   => 'senha',
-						'label'   => 'Senha',
-						'rules'   => array('required')
+						'field'	=> 'senha',
+						'label'	=> 'Senha',
+						'rules'	=> array('required', 'encrypt')
 				),
 				array(
-						'field'   => 'senha_conf',
-						'label'   => 'Redigite a Senha',
-						'rules'   => array('matches'=>'senha')
+						'field'	=> 'senha_conf',
+						'label'	=> 'Redigite a Senha',
+						'rules'	=> array('matches'=>'senha')
 				),
 				array(
-						'field'		=> 'nome',
-						'label'		=> 'Nome',
-						'rules'		=> array('required')
+						'field'	=> 'nome',
+						'label'	=> 'Nome',
+						'rules'	=> array('required')
 				),
 				array(
-						'field'		=> 'sobrenome',
-						'label'		=> 'Sobrenome',
-						'rules'		=> array('required')
+						'field'	=> 'sobrenome',
+						'label'	=> 'Sobrenome',
+						'rules'	=> array('required')
 				),
 				array(
-						'field'		=> 'endereco',
-						'label'		=> 'Endereço',
-						'rules'		=> array('required')
+						'field'	=> 'endereco',
+						'label'	=> 'Endereço',
+						'rules'	=> array('required')
 				),
 				array(
-						'field'		=> 'cep',
-						'label'		=> 'CEP',
-						'rules'		=> array('required')
+						'field'	=> 'cep',
+						'label'	=> 'CEP',
+						'rules'	=> array('required')
 				),
 				array(
-						'field'		=> 'cidade',
-						'label'		=> 'Cidade',
-						'rules'		=> array('required')
+						'field'	=> 'cidade',
+						'label'	=> 'Cidade',
+						'rules'	=> array('required')
 				),
 				array(
-						'field'		=> 'uf',
-						'label'		=> 'UF',
-						'rules'		=> array('required')
+						'field'	=> 'uf',
+						'label'	=> 'UF',
+						'rules'	=> array('required')
 				),
 				array(
-						'field'		=> 'instituicao',
-						'label'		=> 'Instituição',
-						'rules'		=> array('required')
+						'field'	=> 'instituicao',
+						'label'	=> 'Instituição',
+						'rules'	=> array('required')
 				),
 				array(
-						'field'		=> 'departamento',
-						'label'		=> 'Departamento',
-						'rules'		=> array('required')
+						'field'	=> 'departamento',
+						'label'	=> 'Departamento',
+						'rules'	=> array('required')
 				),
 				array(
-						'field'		=> 'telefone',
-						'label'		=> 'Telefone',
-						'rules'		=> array('required')
+						'field'	=> 'telefone',
+						'label'	=> 'Telefone',
+						'rules'	=> array('required')
 				),
 				array(
-						'field'		=> 'celular',
-						'label'		=> 'Celular',
-						'rules'		=> ''
+						'field'	=> 'celular',
+						'label'	=> 'Celular',
+						'rules'	=> ''
 				),
 				array(
-						'field'		=> 'data_nascimento',
-						'label'		=> 'Data de Nascimento',
-						'rules'		=> ''
+						'field'	=> 'data_nascimento',
+						'label'	=> 'Data de Nascimento',
+						'rules'	=> ''
 				),
 				array(
-						'field'		=> 'cpf',
-						'label'		=> 'CPF',
-						'rules'		=> array('required')
+						'field'	=> 'cpf',
+						'label'	=> 'CPF',
+						'rules'	=> array('required')
 				),
 				array(
-						'field'		=> 'email',
-						'label'		=> 'E-mail',
-						'rules'		=> array('required', 'valid_email', 'unique')
+						'field'	=> 'email',
+						'label'	=> 'E-mail',
+						'rules'	=> array('required', 'valid_email', 'unique')
 				),
 				array(
-						'field'		=> 'nivel_academico',
-						'label'		=> 'Nível Acadêmico',
-						'rules'		=> ''
+						'field'	=> 'nivel_academico',
+						'label'	=> 'Nível Acadêmico',
+						'rules'	=> ''
 				)
 		);
 	
@@ -189,6 +189,54 @@ class Usuario extends DataMapper {
 							'other_field'	=> 'autor'
 						)
 			);
+			
+	public function login() {
+        // Create a temporary user object
+        $u = new Usuario();
+
+        // Get this users stored record via their username
+        $u->where('username', $this->username)->get();
+
+        // Give this user their stored salt
+        $this->salt = $u->salt;
+
+        // Validate and get this user by their property values,
+        // this will see the 'encrypt' validation run, encrypting the password with the salt
+        $this->validate()->get();
+
+        // If the username and encrypted password matched a record in the database,
+        // this user object would be fully populated, complete with their ID.
+
+        // If there was no matching record, this user would be completely cleared so their id would be empty.
+        if (empty($this->id))
+        {
+            // Login failed, so set a custom error message
+            $this->error_message('login', 'Username ou senha inválido');
+
+            return FALSE;
+        }
+        else
+        {
+            // Login succeeded
+            return TRUE;
+        }
+    }
+
+    // Validation prepping function to encrypt passwords
+    // If you look at the $validation array, you will see the password field will use this function
+	public function encrypt($field) {
+        // Don't encrypt an empty string
+        if (!empty($this->{$field}))
+        {
+            // Generate a random salt if empty
+            if (empty($this->salt))
+            {
+                $this->salt = md5(uniqid(rand(), true));
+            }
+
+            $this->{$field} = sha1($this->salt . $this->{$field});
+        }
+    }
 
 }
 

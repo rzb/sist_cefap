@@ -33,6 +33,9 @@
 	define("TIPO_USUARIO_DOUTORANDO", 4);
 	define("TIPO_USUARIO_PESQUISADOR", 5);
 	
+	define("NEWSLETTER_NAO_RECEBE", 0);
+	define("NEWSLETTER_RECEBE", 1);
+	
 	define("LANCAMENTO_CREDITO", 0);
 	define("LANCAMENTO_DEBITO", 1);
 	
