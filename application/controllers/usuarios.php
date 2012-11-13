@@ -2,12 +2,34 @@
 
 class Usuarios extends CI_Controller {
 	
+	public function __construct()
+	{
+		parent::__construct();
+		if ( ! $this->session->userdata('logged_in'))
+		{
+			// Allow some methods?
+			$allowed = array(
+					'adicionar',
+					'editar',
+					'trocar_senha',
+					'ativar',
+					'lembrete_senha',
+					'login'
+			);
+			if ( ! in_array($this->router->method, $allowed))
+			{
+				redirect('main');
+			}
+		}
+	}
+	
 	public function index(){
 		
 	}
 	
 	public function listar() {
 		//@TODO checar se usuário é admin
+		
 		$data['title'] = 'Lista de usuários';
 		$this->load->view('usuario_listar', $data);
 	}
@@ -33,6 +55,7 @@ class Usuarios extends CI_Controller {
 			
 			$u->username 		= $post['username'];
 			$u->senha			= $post['senha'];
+			$u->senha_conf		= $post['senha_conf'];
 			$u->nome			= $post['nome'];
 			$u->sobrenome		= $post['sobrenome'];
 			$u->endereco		= $post['endereco'];
@@ -183,6 +206,7 @@ class Usuarios extends CI_Controller {
 		
 	}
 	
+	// @TODO ... estender: checar se usuário já está logado verificando sessão... implementar logout etc
     public function login() {
         // Create user object
         $u = new Usuario();
@@ -197,13 +221,24 @@ class Usuarios extends CI_Controller {
         // Attempt to log user in with the data they supplied, using the login function setup in the User model
         // You might want to have a quick look at that login function up the top of this page to see how it authenticates the user
         if ($u->login()) {
-            echo '<p>Welcome ' . $u->username . '!</p>';
-            echo '<p>You have successfully logged in so now we know that your email is ' . $u->email . '.</p>';
+        	$data['msg'] = 'Bem-vindo, ' .$u->username. '!';
+        	$data['msg_type'] = 'success';
+        	$userdata = array(
+        			'id'		=> $u->id,
+        			'username'  => $u->username,
+        			'email'     => $u->email,
+        			'logged_in' => TRUE
+        	);
+        	
+        	$this->session->set_userdata($userdata);
         }
         else {
-            // Show the custom login error message
-            echo '<p>' . $u->error->login . '</p>';
+            $data['msg'] = 'Usuário ou senha inválido.';
+        	$data['msg_type'] = 'error';
         }
+        
+        redirect('main');
+        
     }
 	
 }

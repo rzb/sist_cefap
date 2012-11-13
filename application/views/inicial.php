@@ -3,10 +3,9 @@
 		<h2>Agendamentos » <span>Novo agendamento</span></h2>
 	<?php echo set_breadcrumb(); ?>
 	
-	<?php $this->load->view('login'); ?>;
-	
+	<?php echo (isset($msg) && isset($msg_type) )? msg($msg, $msg_type) : ''; ?>  
+		
 	<!-- tabela -->
-	
 	<div class="well">
 		<h2 class="pull-left">Tabela</h2>
 		<div class="btn-group pull-right">

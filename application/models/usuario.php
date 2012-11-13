@@ -2,28 +2,32 @@
 
 class Usuario extends DataMapper {
 	
-	protected $senha_conf;
+	public $senha_conf;
 	
+	// @TODO alterar $senha_conf para private ou mesmo protected e implementar um setter
 	public function setSenha_conf($senha_conf){
 		$this->senha_conf = $senha_conf;
 	}
 	
-	// @TODO terminar validação
+	/* @TODO terminar validação
+	 * @TODO encriptar senha (usando 'encrypt', a senha é criptografada e salva no banco. 
+	 * Porém, o salt usado não é recuperado em $u->salt. Verificar necessidade de criar campo salt na tabela usuarios)
+	*/ 
 	public $validation = array(
 				array(
 						'field'	=> 'username',
 						'label'	=> 'Username',
-						'rules'	=> array('required', 'unique')
+						'rules'	=> array('required', 'trim', 'unique', 'alpha_dash', 'min_length' => 3, 'max_length' => 20)
 				), // checar se username é único
 				array(
 						'field'	=> 'senha',
 						'label'	=> 'Senha',
-						'rules'	=> array('required', 'encrypt')
+						'rules'	=> array('required', 'trim', 'min_length' => 6)
 				),
 				array(
 						'field'	=> 'senha_conf',
 						'label'	=> 'Redigite a Senha',
-						'rules'	=> array('matches'=>'senha')
+						'rules'	=> array('required', 'min_length' => 6, 'matches'=>'senha')
 				),
 				array(
 						'field'	=> 'nome',
@@ -88,7 +92,7 @@ class Usuario extends DataMapper {
 				array(
 						'field'	=> 'email',
 						'label'	=> 'E-mail',
-						'rules'	=> array('required', 'valid_email', 'unique')
+						'rules'	=> array('required', 'trim', 'valid_email')
 				),
 				array(
 						'field'	=> 'nivel_academico',
@@ -193,6 +197,8 @@ class Usuario extends DataMapper {
 	public function login() {
         // Create a temporary user object
         $u = new Usuario();
+        
+        $uName = $this->username;
 
         // Get this users stored record via their username
         $u->where('username', $this->username)->get();
@@ -208,15 +214,14 @@ class Usuario extends DataMapper {
         // this user object would be fully populated, complete with their ID.
 
         // If there was no matching record, this user would be completely cleared so their id would be empty.
-        if (empty($this->id))
-        {
+        if (empty($this->id)) {
             // Login failed, so set a custom error message
             $this->error_message('login', 'Username ou senha inválido');
-
+			
+            $this->username = $uName;
+            
             return FALSE;
-        }
-        else
-        {
+        } else {
             // Login succeeded
             return TRUE;
         }
@@ -224,13 +229,11 @@ class Usuario extends DataMapper {
 
     // Validation prepping function to encrypt passwords
     // If you look at the $validation array, you will see the password field will use this function
-	public function encrypt($field) {
+	public function _encrypt($field) {
         // Don't encrypt an empty string
-        if (!empty($this->{$field}))
-        {
+        if (!empty($this->{$field})) {
             // Generate a random salt if empty
-            if (empty($this->salt))
-            {
+            if (empty($this->salt)) {
                 $this->salt = md5(uniqid(rand(), true));
             }
 
