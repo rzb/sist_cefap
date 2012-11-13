@@ -1,0 +1,11 @@
+INSERT INTO usuarios (`username`, `senha`, `created`, `modified`, `nome`, `sobrenome`, `endereco`, `instituicao`, `departamento`, `data_nascimento`, `key`, `status`, `obs`, `credencial`, `email`, `celular`, `telefone`, `cpf`, `tipo`, `newsletter`, `cep`) 
+values ('teste10','123456','','','teste1','sobrenometeste','rua um','instituicaoteste1','departamentoteste1','dt nascimento 22-08-1989','keyTeste1','statusTeste1','obsTeste1','credencialTeste1','teste111@teste.com','(11)912345623','(11)24218095','38116290851','tipoTeste','newsletterTeste1','07052200');
+
+INSERT INTO usuarios (`username`, `senha`, `created`, `modified`, `nome`, `sobrenome`, `endereco`, `instituicao`, `departamento`, `data_nascimento`, `key`, `status`, `obs`, `credencial`, `email`, `celular`, `telefone`, `cpf`, `tipo`, `newsletter`, `cep`) 
+values ('teste11','654321','','','teste2','sobrenometeste2','rua dois','instituicaoteste2','departamentoteste2','dt nascimento 22-08-1989','keyTeste2','statusTeste2','obsTeste2','credencialTeste2','teste15@teste.com','(11)912345623','(11)24218095','38116290851','tipoTeste2','newsletterTeste2','07052200');
+
+INSERT INTO usuarios (`username`, `senha`, `created`, `modified`, `nome`, `sobrenome`, `endereco`, `instituicao`, `departamento`, `data_nascimento`, `key`, `status`, `obs`, `credencial`, `email`, `celular`, `telefone`, `cpf`, `tipo`, `newsletter`, `cep`) 
+values ('teste12','123456','','','teste3','sobrenometeste3','rua tres','instituicaoteste3','departamentoteste3','dt nascimento 22-08-1989','keyTeste3','statusTeste3','obsTeste3','credencialTeste3','teste14@teste.com','(11)912345623','(11)24218095','38116290851','tipoTeste3','newsletterTeste3','07052200');
+
+INSERT INTO usuarios (`username`, `senha`, `created`, `modified`, `nome`, `sobrenome`, `endereco`, `instituicao`, `departamento`, `data_nascimento`, `key`, `status`, `obs`, `credencial`, `email`, `celular`, `telefone`, `cpf`, `tipo`, `newsletter`, `cep`) 
+values ('teste13','654321','','','teste4','sobrenometeste4','rua quatro','instituicaoteste4','departamentoteste4','dt nascimento 22-08-1989','keyTeste4','statusTeste4','obsTeste4','credencialTeste4','teste13@teste.com','(11)912345623','(11)24218095','38116290851','tipoTeste4','newsletterTeste4','07052200')

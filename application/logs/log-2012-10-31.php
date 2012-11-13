@@ -131,3 +131,10 @@ DEBUG - 2012-10-31 12:08:59 --> File loaded: application/views/inicial.php
 DEBUG - 2012-10-31 12:08:59 --> File loaded: application/views/footer.php
 DEBUG - 2012-10-31 12:08:59 --> Final output sent to browser
 DEBUG - 2012-10-31 12:08:59 --> Total execution time: 1.1376
+DEBUG - 2012-10-31 12:27:01 --> Config Class Initialized
+DEBUG - 2012-10-31 12:27:01 --> Hooks Class Initialized
+DEBUG - 2012-10-31 12:27:01 --> Utf8 Class Initialized
+DEBUG - 2012-10-31 12:27:01 --> UTF-8 Support Enabled
+DEBUG - 2012-10-31 12:27:01 --> URI Class Initialized
+DEBUG - 2012-10-31 12:27:01 --> Router Class Initialized
+ERROR - 2012-10-31 12:27:01 --> 404 Page Not Found --> _THAIS

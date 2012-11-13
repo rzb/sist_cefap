@@ -1,4 +1,3 @@
-
 <div id="main_content">
 		<h2>Agendamentos » <span>Novo agendamento</span></h2>
 	<?php echo set_breadcrumb(); ?>
@@ -38,16 +37,16 @@
 			<tbody>
 				<tr>
 					<td><input type="checkbox" /></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td><a href='<?php echo base_url('usuarios/listar'); ?>'>Link para Listar</a></td>
+					<td><a href='<?php echo base_url('usuarios/adicionar'); ?>'>Link para Adicionar</a></td>
+					<td><a href='<?php echo base_url('usuarios/editar'); ?>'>Link para Editar</a></td>
+					<td><a href='<?php echo base_url('usuarios/trocar_senha'); ?>'>Link para Trocar Senha</a></td>
 					<td><select class="input-medium"><option>Selecione...</option></select></td>
 				</tr>
 				<tr>
 					<td><input type="checkbox" /></td>
-					<td></td>
-					<td></td>
+					<td><a href='<?php echo base_url('usuarios/lembrete_senha'); ?>'>Link para Lembrete de Senha</a></td>
+					<td><a href='<?php echo base_url('usuarios/dados_pessoais'); ?>'>Link para Dados Pessoais</a></td>
 					<td></td>
 					<td></td>
 					<td><select class="input-medium"><option>Selecione...</option></select></td>
@@ -108,4 +107,3 @@
 		
 	
 	</div><!-- end main_content -->
-</div><!-- end content -->
