@@ -9,7 +9,7 @@ class Main extends CI_Controller {
 		if ( ! $this->session->userdata('logged_in')) {
 			$this->load->view('login');
 		} else {
-			$data['msg'] = 'Bem-vindo, ' .$this->session->userdata('username'). '!';
+			$data['msg'] = 'Bem-vindo, ' .$this->session->userdata('username'). '! <a href="' .base_url('usuarios/logout'). '">LOGOUT</a>';
         	$data['msg_type'] = 'success';
 		}
 		$this->load->view('inicial', $data);

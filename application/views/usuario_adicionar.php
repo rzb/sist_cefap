@@ -136,10 +136,10 @@
                  echo '<div class="control-group">';
                  echo form_label('Nível Acadêmico', 'nivel',$attributes['label']); 
                  echo '<div class="controls">'; ?>
-                 <input type="radio" name="nivel" value="Mestrado" /> Mestrado
-                 <input type="radio" name="nivel" value="Doutorando" /> Doutorando
-                 <input type="radio" name="nivel" value="Pós-doc" /> Pós-doc
-                 <input type="radio" name="nivel" value="Professor" /> Professor
+                 <input type="radio" name="tipo" value="Mestrado" /> Mestrado
+                 <input type="radio" name="tipo" value="Doutorando" /> Doutorando
+                 <input type="radio" name="tipo" value="Pós-doc" /> Pós-doc
+                 <input type="radio" name="tipo" value="Professor" /> Professor
                  <?php echo '</div>';
                  echo '</div>';  ?>
 

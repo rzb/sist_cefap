@@ -1,36 +1,39 @@
 <?php
 
 class Usuarios extends CI_Controller {
-	
+
+    private $uRole;     # credencial do usuário
+    
 	public function __construct()
 	{
 		parent::__construct();
-		if ( ! $this->session->userdata('logged_in'))
-		{
-			// Allow some methods?
-			$allowed = array(
-					'adicionar',
-					'editar',
-					'trocar_senha',
-					'ativar',
-					'lembrete_senha',
-					'login'
-			);
-			if ( ! in_array($this->router->method, $allowed))
-			{
-				redirect('main');
-			}
+        // if user is NOT logged in...
+		if ( ! $this->session->userdata('logged_in')) {
+		    // initialize user role with FALSE;
+			$this->uRole = FALSE;
 		}
+        // else, user is logged in...
+        else {
+            $u = new Usuario();
+            $u->select('credencial')->where('id', $this->session->userdata('id'))->get();
+            // initialize user role with proper value
+            $this->uRole = $u->credencial;
+        }
+
 	}
 	
-	public function index(){
+	public function index() {
 		
 	}
 	
 	public function listar() {
-		//@TODO checar se usuário é admin
-		
+		// dump unauthorized users
+        if ( ! $this->uRole) {
+            redirect('main');
+        }
+        
 		$data['title'] = 'Lista de usuários';
+        $data['uRole'] = $this->uRole;
 		$this->load->view('usuario_listar', $data);
 	}
 	
@@ -44,7 +47,15 @@ class Usuarios extends CI_Controller {
 		// um superadministrador pode fazer o cadastro de quantos usuários quiser, enquanto usuários comuns e administradores só podem registrar a si mesmos
 		// uma vez registrados e logados, comuns e administradores não terão mais acesso ao formulário de cadastro
 		
-		if ($this->input->post('submit')) {
+		// dump unauthorized users
+		if ( $this->uRole === CREDENCIAL_USUARIO_ADMIN || $this->uRole === CREDENCIAL_USUARIO_COMUM ) {
+		    redirect('main');
+		}
+        
+        // default view
+        $view = 'usuario_adicionar';
+		
+		if ( $this->input->post('submit') ) {
 			/* 
 			 * 1- gravar usuário no banco
 			 * 2- enviar e-mail de confirmação
@@ -67,12 +78,12 @@ class Usuarios extends CI_Controller {
 			$u->key				= create_guid();
 			$u->status			= STATUS_USUARIO_INATIVO;
 			// $u->obs			= '';
-			$u->credencial		= CREDENCIAL_USUARIO_COMUM;
+			$u->credencial		= $this->uRole ? $post['credencial'] : CREDENCIAL_USUARIO_COMUM; // check if user submitting form is an admin
 			$u->email			= $post['email'];
 			$u->celular			= isset($post['celular']) ? $post['celular'] : 0;
 			$u->telefone		= $post['telefone'];
 			$u->cpf				= $post['cpf'];
-			// @TODO implementar no formulário e modificar documentação para: $u->tipo				= '';
+			$u->tipo            = $post['tipo'];
 			$u->newsletter		= isset($post['newsletter']) ? $post['newsletter'] : 0;
 			$u->cep				= $post['cep'];
 			
@@ -103,19 +114,28 @@ class Usuarios extends CI_Controller {
 				$this->email->send();
 				
 				echo $this->email->print_debugger();
-				/*
-					$msg = urlencode(htmlentities("<strong>Usuário(s) adicionado(s) com sucesso!</strong>"));
-					$msg_type = urlencode('success');
-					redirect("/usuarios/?msg=$msg&msg_type=$msg_type");
-					return;
-				*/
+				
+                $data['msg']        = 'Novo usário ' .$u->username. ' cadastrado com sucesso!';
+                $data['msg_type']   = 'success';
+                
+				// if user is just a guest (not logged in thus registering himself) he can't do this more than once
+				if ( ! $this->uRole ) {
+				    /*
+                     * @TODO talvez implementar uma view 'sucesso' que renderize somente a mensagem de sucesso
+                     * e redirecione automaticamente para o controller 'main' via js, sendo assim reutilizável para qualquer ação bem sucedida?
+                     */  
+				    $data['msg']        = 'Obrigado por ter se registrado! Será lhe enviado um e-mail para que você confirme o cadastro.';
+				    $data['msg_type']   = 'success';
+                    // change view to success page
+                    $view = 'inicial';
+				}
 				
 			}
 			
 		}
-		
+
 		$data['title'] = 'Cadastro de Usuário';
-		$this->load->view('usuario_adicionar', $data);
+		$this->load->view($view, $data);
 		
 	}
 	
@@ -136,16 +156,16 @@ class Usuarios extends CI_Controller {
 			
 		// se não há key para se trabalhar, então redireciona à home
 		} else {
-			redirect(base_url("/main/"));
+			redirect('main');
 		}
 		
 	}
 	
 	public function editar() {
 		
-		$u = new Usuario();
-		if($this->uri->segment(3) && $u->where('id', $this->uri->segment(3))->count() > 0) {
+		if( $this->uRole !== FALSE && $this->uri->segment(3) && $u->where('id', $this->uri->segment(3))->count() > 0) {
 			
+            $u = new Usuario();
 			$u->where('id', $this->uri->segment(3))->get();
 			
 			if ($this->input->post('submit')) {
@@ -197,7 +217,7 @@ class Usuarios extends CI_Controller {
 			$this->load->view('usuario_editar', $data);
 			
 		} else {
-			redirect(base_url("/main/"));
+			redirect('main');
 		}
 		
 	}
@@ -206,7 +226,7 @@ class Usuarios extends CI_Controller {
 		
 	}
 	
-	// @TODO ... estender: checar se usuário já está logado verificando sessão... implementar logout etc
+	// @TODO ... estender: checar se usuário já está logado verificando sessão...
     public function login() {
         // Create user object
         $u = new Usuario();
@@ -231,6 +251,7 @@ class Usuarios extends CI_Controller {
         	);
         	
         	$this->session->set_userdata($userdata);
+
         }
         else {
             $data['msg'] = 'Usuário ou senha inválido.';
@@ -239,6 +260,11 @@ class Usuarios extends CI_Controller {
         
         redirect('main');
         
+    }
+
+    public function logout() {
+        $this->session->sess_destroy();
+        redirect('main');
     }
 	
 }
