@@ -1,6 +1,8 @@
 
 <?php 
-    $this->load->view('header');  
+    $this->load->view('header');
+     
+    
 ?>
 <style>
    .select p {text-align: center; background-color: #FFFFFF; border: 0px #FFFFFF}
@@ -44,12 +46,10 @@ echo (isset($msg) && isset($msg_type) )? msg($msg, $msg_type) : '';
             <thead>
                     <tr>
                             <th></th>
-                            <th><a href='<?php echo base_url("usuarios/listar/id/$limit/$offset"); ?>'>ID</a></th>
-                            <th><a href='<?php echo base_url("usuarios/listar/nome/$limit/$offset"); ?>'>Nome</a></th>
-                            <th><a href='<?php echo base_url("usuarios/listar/email/$limit/$offset"); ?>'>E-mail</a></th>
-                            <th><a href='<?php echo base_url("usuarios/listar/instituicao/$limit/$offset"); ?>'>Instituição</a></th>
-                            <th><a href='<?php echo base_url("usuarios/listar/tipo/$limit/$offset"); ?>'>Tipo</a></th>
-                            <th><a href='<?php echo base_url("usuarios/listar/status/$limit/$offset"); ?>'>Status</a></th>
+                            <th><a href='<?php echo base_url("usuarios/listar/id/$limit/$offset"); ?>'>Nome</a></th>
+                            <th><a href='<?php echo base_url("usuarios/listar/nome/$limit/$offset"); ?>'>Agendamento</a></th>
+                            <th><a href='<?php echo base_url("usuarios/listar/email/$limit/$offset"); ?>'>Administradores</a></th>
+                            <th><a href='<?php echo base_url("usuarios/listar/instituicao/$limit/$offset"); ?>'>Arquivos</a></th>
                             <th>Opções</th>
                     </tr>
             </thead>
@@ -89,9 +89,9 @@ echo (isset($msg) && isset($msg_type) )? msg($msg, $msg_type) : '';
                             <td>
                                 <select class="input-medium change_option" id="select_emlinha">
                                     <option>Selecione...</option>
-                                    <option value="dados_pessoais">Dados Pessoais</option>
-                                    <option value="trocar_senha">Enviar Mensagem</option>
-                                    <option value="usuario_lembrete_senha">Log de Acesso</option>
+                                    <option value="dados_pessoais">Editar</option>
+                                    <option value="trocar_senha">Ver detalhes</option>
+                                    <option value="usuario_lembrete_senha">Inativar</option>
                                     <option value="usuario_dados_pessoais">Agendamentos</option>
                                     <option value="usuario_dados_pessoais">Créditos</option>
                                     <optgroup label="Mudar credencial">
@@ -126,55 +126,3 @@ echo (isset($msg) && isset($msg_type) )? msg($msg, $msg_type) : '';
     }
     $this->load->view('footer'); 
 ?>
-<script type="text/javascript">
-    jQuery(document).ready(function(){
-        Array.prototype.join = function(separator){
-        if (separator == undefined){separator = ','}
-        var text = new String;
-        for (obj in this){
-          text += this[obj] + separator}
-        return text.slice(0,text.length - separator.length)}
-        
-        
-        jQuery('#selectQntd').change(function(){
-           //window.location.href = '<?php echo base_url("usuarios/listar/id");  ?>' + '/' + option + '/0' ;
-           var separator = '/';
-           var url = window.location.href.split(separator);
-           url[7] = jQuery(this).val();
-           url.join(separator).replace(',','a');
-           //url.replace(",", "/");
-           //window.location.href = url;
-          alert (url);
-        });
-   
-        jQuery(".change_option").change(function(){
-         
-           var option = jQuery(this).val();
-           
-           if (jQuery(this).attr('id') == 'comMarcados' ) {
-           
-                var checked = jQuery("input[name='user_List']:checked");
-
-                if(checked.length > 0){
-                    var userIds = [];
-
-                     checked.each(function(index){
-                         var id = jQuery(this).closest("tr.listar_usuario").attr("id").split("-");
-                         id = id[1];
-                         userIds[index] = id;
-                     });
-                     id = userIds.join('_');
-                     
-                     window.location.href = '<?php echo base_url('usuarios/mudar_status'); ?>' + '/' + id + '/' + option;
-                }else{
-                     alert('Selecione pelo menos um usuário');
-                     return;
-                }
-            } else {
-                var id = jQuery(this).closest("tr.listar_usuario").attr("id").split("-");
-                id = id[1];
-                window.location.href = '<?php echo base_url('usuarios'); ?>' + '/' + option + '/' + id;
-            }  
-           });    
-    });
-</script>

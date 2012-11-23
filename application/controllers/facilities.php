@@ -19,7 +19,7 @@ class Facilities extends CI_Controller {
     }
     
     public function adicionar(){
-        
+        $this->load->view('facilities_adicionar');
         
     }
     
@@ -60,7 +60,6 @@ class Facilities extends CI_Controller {
     
     public function __destruct(){
         
-        parent::__destruct();
     }
 }
 

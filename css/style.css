@@ -105,7 +105,7 @@ strong
 	background: #fff;
 	border: 1px solid #cccccc;
 	width: 990px;
-	margin: 0 auto;
+        margin: 0 auto;
 	-webkit-box-shadow:0 0 30px 0px #bbb;
 	-moz-box-shadow:0 0 30px 0px #bbb;
 	box-shadow: 0 0 30px 0px #bbb;
@@ -280,3 +280,21 @@ strong
 }
 
 input.input-page {margin-bottom: 0;}
+
+
+/*THAIS - 19/11/2012 - STYLES PARA AS DASHBOARDS*/
+h1{text-align: center; padding: 5px;}
+#selectDashboard {margin-left: 70%;}
+#middle-down {border: 1px solid black; width: 290px; height: 180px; padding: 5px; text-align: center;}
+#down {border: 1px solid black; width: 447px; height: 150px; padding: 5px;}
+.hr {width:1px; height:50px; background-color:#ccc; position:relative; top:5%; left:50%; z-index:10;}
+.top {border: 1px solid black; width: auto; height: auto;}
+.middle-left {border: 1px solid black; width: 603px; height: 100px; padding: 5px;}
+.middle-right {width: 290px; border: 1px solid black; float: right; margin-top: -112px; height: 100px; text-align: center; padding: 5px; }
+.middle-down-left {margin-top:15px;}
+.middle-down-center{ margin-left: 314px; margin-top: -191px; }
+.middle-down-right {float: right; margin-top: -191px;}
+.down-left {margin-top: 15px;}
+.down-right {margin-top: -162px; float: right;}
+.pull-right {margin-top: -30px; margin-right: 10%; margin-left: 15px;}
+.pull-left{margin-top: 20px;}

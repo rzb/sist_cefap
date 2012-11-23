@@ -1,10 +1,21 @@
 <?php
-class Usuarios extends CI_Controller{
+class Usuarios extends MY_Controller{
     
     public function __construct(){
         
-        parent:: __construct();
-                
+        parent::__construct();
+        // if user is NOT logged in...
+        if ( ! $this->session->userdata('logged_in')) {
+            // initialize user role with FALSE;
+                $this->uRole = FALSE;
+        }
+// else, user is logged in...
+        else {
+            $u = new Usuario();
+            $u->select('credencial')->where('id', $this->session->userdata('id'))->get();
+            // initialize user role with proper value
+            $this->uRole = $u->credencial;
+        }          
     }
     
     public function index(){ 
@@ -13,41 +24,48 @@ class Usuarios extends CI_Controller{
     }
     
     public function listar(){
-        // @TODO Verificar se o usuário é admin 
-        /*if(user == superadmin*/
+        $total = $this->db->count_all("usuarios");
         
-        if($this->uri->segment(3) == null){
-           $user = new Usuario();
-            $user->select('id, nome, email, tipo, status, instituicao'); 
-        
-            $user->get();
-        
-            $data['user'] = $user;
-        
-            $this->load->view('usuario_listar',$data);
-        }
-        else{
-            $order = $this->uri->segment(3);
+        if ($total > 0 ){
+            $order = $this->uri->segment(3, 'id'); #ordena de acordo com a opção escolhida pelo usuário
+            $limit = $this->uri->segment(4, 5); #limite de resultados por página
+            $offset = $this->uri->segment(5, 0); #exibe a partir de um resultado
+            $page = $this->uri->segment(6, 0);
+
+
+            /*LISTAR USUÁRIO*/   
             $user = new Usuario();
-            $user->select('id, nome, email, tipo, status, instituicao'); 
+            $user->select('id, nome, email, tipo, status, instituicao')->limit($limit, $offset); 
             $user->order_by($order);
-            
             $user->get();
-        
-            $data['user'] = $user;
-        
-            $this->load->view('usuario_listar',$data);
+
+            $data['user'] = $user; 
+            $data['limit'] = $limit;
+            $data['offset'] = $offset;
+            $data['perpage'] = $page;
+
             
+            
+            /* PAGINAÇÃO */
+            $this->load->library("pagination");
+            $config = array();
+            $config["base_url"] = base_url() . "usuarios/listar";
+            
+            $config['total_rows'] = $total;
+            $config['per_page'] = $limit; 
+            $config['uri_segment'] = 6;
+            $data["results"] = $user;
+            $this->pagination->initialize($config);
+
+            $data["links"] = $this->pagination->create_links();
+            
+        }else{
+            $data['msg'] = '<strong>Nenhuma mensagem encontrada.</strong>';
+            $data['msg_type'] = 'note';
         }
-        
-        /*if(user == admin)
-         * $user = new Usuario();
-         * $user->where('tipo',$excetoExcluidos);
-         * $user->get();
-         * $data['user'] = $user;
-         * $this->load->view('usuario_listar',$data);
-         */
-        
+         $data['title'] = 'Lista de Usuários';
+         $this->load->view('usuario_listar',$data);
+    
     }
     
     public function adicionar(){
@@ -59,6 +77,14 @@ class Usuarios extends CI_Controller{
 		// campo de selação de credencial só é mostrado para usuários superadministradores
 		// um superadministrador pode fazer o cadastro de quantos usuários quiser, enquanto usuários comuns e administradores só podem registrar a si mesmos
 		// uma vez registrados e logados, comuns e administradores não terão mais acesso ao formulário de cadastro
+        
+                // dump unauthorized users
+                        if ( $this->uRole === CREDENCIAL_USUARIO_ADMIN || $this->uRole === CREDENCIAL_USUARIO_COMUM ) {
+                            redirect('main');
+                        }
+
+            // default view
+            $view = 'usuario_adicionar';
 
 		$data['title'] = 'Cadastro de Usuário';
 
@@ -80,7 +106,7 @@ class Usuarios extends CI_Controller{
 			$user->uf				= $post['uf'];
 			$user->instituicao		= $post['instituicao'];
 			$user->departamento		= $post['departamento'];
-			$user->data_nascimento	= $post['data_nascimento'];
+			$user->data_nascimento          = $post['data_nascimento'];
 			$user->key				= '';
 			$user->status			= STATUS_USUARIO_INATIVO;
 			// $user->obs				= '';
@@ -109,100 +135,126 @@ class Usuarios extends CI_Controller{
 
 			} else { // success
 
-				$msg = urlencode(htmlentities("<strong>Usuário(s) adicionado(s) com sucesso!</strong>"));
-				$msg_type = urlencode('success');
-				redirect("/usuarios/?msg=$msg&msg_type=$msg_type");
-				return;
+				$this->load->library('email');
+
+				$this->email->from('renato.trajettoria@trajettoria.com', 'Renato');
+				$this->email->to($u->email);
+
+				$this->email->subject('Confirmação de Cadastro');
+				$this->email->message('Olá, ' .$u->nome. '! Confirme seu cadastro <a href="' .base_url('usuarios/ativar/'.$u->key). '">clicando aqui</a>.');
+
+				$this->email->send();
+
+				echo $this->email->print_debugger();
+
+                $data['msg']        = 'Novo usário ' .$u->username. ' cadastrado com sucesso!';
+                $data['msg_type']   = 'success';
+                
+				// if user is just a guest (not logged in thus registering himself) he can't do this more than once
+				if ( ! $this->uRole ) {
+				    /*
+                     * @TODO talvez implementar uma view 'sucesso' que renderize somente a mensagem de sucesso
+                     * e redirecione automaticamente para o controller 'main' via js, sendo assim reutilizável para qualquer ação bem sucedida?
+                     */  
+				    $data['msg']        = 'Obrigado por ter se registrado! Será lhe enviado um e-mail para que você confirme o cadastro.';
+				    $data['msg_type']   = 'success';
+                    // change view to success page
+                    $view = 'inicial';
+				}
 
 			}
 
 		}
 
-		$this->load->view('usuario_adicionar', $data);
+		$data['title'] = 'Cadastro de Usuário';
+		$this->load->view($view, $data);
 
-    }
-    
-    public function excluir(){
+	}
         
-      /* $ids = $this->uri->segment(3);
-       $ids = explode('_', $ids);
-        
-       if(isset($ids))
-            {
-             $u = new Usuario();
-                $u->where_in('id',$ids)->update('status', STATUS_USUARIO_EXCLUIDO);
-            
-                if($u->delete() ) // delete user
-                    {
-                            $msg = urlencode(htmlentities("<strong>Usuário excluído com sucesso! (ID: $ids)</strong>"));
-                            $msg_type = urlencode('success');
-                    }
-                    else
-                    {
-                            $msg = urlencode(htmlentities("<strong>Ocorreu um erro durante a exclusão do usuário (ID: $ids)</strong><br />Por favor, tente novamente. Se o problema persistir, contate o administrador do sistema."));
-                            $msg_type = urlencode('error');
-                    }
-            
-            }
-         redirect(base_url('usuarios/listar'));*/
-    }
-    
-    public function mudar_status(){
-            
-            $ids = $this->uri->segment(3);
-            $id = explode('_', $ids);
-            
-            $option = $this->uri->segment(4);
-            
-           switch($option){
-                case STATUS_USUARIO_EXCLUIDO:
-                    $u = new Usuario();
-                    $u->where_in('id',$id)->update('status', $option);
-                    redirect(base_url('usuarios/listar'));
-                    break;
-                
-                case STATUS_USUARIO_BLOQUEADO:
-                    $u = new Usuario();
-                    $u->where_in('id',$id)->update('status', $option);
-                    redirect(base_url('usuarios/listar'));
-                    break;
-                    
-                case STATUS_USUARIO_ATIVO:
-                    $u = new Usuario();
-                    $u->where_in('id',$id)->update('status', $option);
-                    redirect(base_url('usuarios/listar'));
-                    break;
-                
-                case STATUS_USUARIO_INATIVO:
-                    $u = new Usuario();
-                    $u->where_in('id',$id)->update('status', $option);
-                    redirect(base_url('usuarios/listar'));
-                    break;
-                
-                case 4:
-                    $this->load->view('usuario_trocar_senha', $id); 
-                    break;
-                
-                                   
-                default:
-                    redirect(base_url('usuarios/listar')); 
-                    break;
-            }
-    }
-    
-    public function mudar_credencial(){
+        public function ativar(){
+        $u = new Usuario();
+
+        // se o segmento 3 existe e é uma key válida cadastrada para um usuário do banco, ativa o usuário
+        if($this->uri->segment(3) && $u->where('key', $this->uri->segment(3))->count() > 0) {
+
+                $key = $this->uri->segment(3);
+
+                $u->where('key', $key)->update('status', STATUS_USUARIO_ATIVO);
+
+                $data['title'] = "Cadastro Confirmado";
+                // @TODO preparar $data['msg'] para ser mostrada na view
+                $this->load->view('usuario_ativar', $data);
+
+        // se não há key para se trabalhar, então redireciona à home
+        } else {
+                redirect(base_url("/main/"));
+        }
         
         
     }
     
-    public function editar(){
+     public function editar(){
+
+		if( $this->uRole !== FALSE && $this->uri->segment(3) && $u->where('id', $this->uri->segment(3))->count() > 0) {
+
+                        $u = new Usuario();
+			$u->where('id', $this->uri->segment(3))->get();
+
+			if ($this->input->post('submit')) {
+
+				$post = $this->input->post(NULL, TRUE); // returns all POST items with XSS filter
+
+				$u->username 		= $post['username'];
+				$u->nome			= $post['nome'];
+				$u->sobrenome		= $post['sobrenome'];
+				$u->endereco		= $post['endereco'];
+				$u->cidade			= $post['cidade'];
+				$u->uf				= $post['uf'];
+				$u->instituicao		= $post['instituicao'];
+				$u->departamento	= $post['departamento'];
+				$u->data_nascimento	= $post['data_nascimento'];
+				$u->email			= $post['email'];
+				$u->celular			= isset($post['celular']) ? $post['celular'] : null;
+				$u->telefone		= $post['telefone'];
+				$u->cpf				= $post['cpf'];
+				$u->tipo			= $post['tipo'];
+				$u->newsletter		= isset($post['newsletter']) ? $post['newsletter'] : NEWSLETTER_NAO_RECEBE;
+				$u->cep				= $post['cep'];
+
+				if( !$u->save() ) { // error on update
+
+					if ( $u->valid ) { // validation ok; database error on insert or update
+
+						$data['msg'] = '<strong>Erro na gravação no banco de dados.</strong><br />Tente novamente e, se o problema persistir, notifique o administrador do sistema.';
+						$data['msg_type'] = 'error';
+
+					} else { // validation error
+
+						$data['msg'] = $u->error->string;
+						$data['msg_type'] = 'error';
+
+					}
+
+				} else { // success
+
+					$data['msg'] = 'Dados atualizados com sucesso.';
+					$data['msg_type'] = 'success';
+
+				}
+
+			}
+
+			$data['u'] = $u;
+			$data['title'] = 'Edição de Usuário';
+			$this->load->view('usuario_editar', $data);
+
+		} else {
+			redirect('main');
+		}
+
+	}
         
-        
-            
-        
-    }
-    
-    public function trocar_senha(){
+        public function trocar_senha(){
         
         $id = $this->uri->segment(3);
         if ($this->input->post(NULL,TRUE)) {
@@ -242,11 +294,87 @@ class Usuarios extends CI_Controller{
             $this->load->view('usuario_trocar_senha', $id);
         }
     }
-    public function ativar(){
-        
+    
+    public function excluir(){
         
     }
     
+    public function mudar_status(){
+            
+            $ids = $this->uri->segment(3);
+            $id = explode('_', $ids);
+            
+            $option = $this->uri->segment(4);
+            
+           switch($option){
+                case STATUS_USUARIO_EXCLUIDO:
+                    $u = new Usuario();
+                    $u->where_in('id',$id)->update('status', $option);
+                    redirect(base_url('usuarios/listar'));
+                    break;
+                
+                case STATUS_USUARIO_BLOQUEADO:
+                    $u = new Usuario();
+                    $u->where_in('id',$id)->update('status', $option);
+                    redirect(base_url('usuarios/listar'));
+                    break;
+                    
+                case STATUS_USUARIO_ATIVO:
+                    $u = new Usuario();
+                    $u->where_in('id',$id)->update('status', $option);
+                    redirect(base_url('usuarios/listar'));
+                    break;
+                
+                case STATUS_USUARIO_INATIVO:
+                    $u = new Usuario();
+                    $u->where_in('id',$id)->update('status', $option);
+                    redirect(base_url('usuarios/listar'));
+                    break;
+                
+                case 4:
+                    $this->load->view('usuario_trocar_senha', $id); 
+                    break;                
+                                   
+                default:
+                    redirect(base_url('usuarios/listar')); 
+                    break;
+            }
+    }
+    
+    public function mudar_credencial(){
+        $id = $this->uri->segment(4);
+        $option = $this->uri->segment(3);
+        
+        switch($option){
+                case CREDENCIAL_USUARIO_COMUM:
+                    $u = new Usuario();
+                    $u->where_in('id',$id)->update('credencial', $option);
+                    $data['msg'] = 'Dados atualizados com sucesso.';
+                    $data['msg_type'] = 'success';
+                    redirect(base_url('usuarios/listar',$data));
+                    break;
+                
+                case CREDENCIAL_USUARIO_ADMIN:
+                    $u = new Usuario();
+                    $u->where_in('id',$id)->update('credencial', $option);
+                    $data['msg'] = 'Dados atualizados com sucesso.';
+                    $data['msg_type'] = 'success';
+                    redirect(base_url('usuarios/listar',$data));
+                    break;
+                    
+                case CREDENCIAL_USUARIO_SUPERADMIN:
+                    $u = new Usuario();
+                    $u->where_in('id',$id)->update('credencial', $option);
+                    $data['msg'] = 'Dados atualizados com sucesso.';
+                    $data['msg_type'] = 'success';
+                    redirect(base_url('usuarios/listar',$data));
+                    break;
+                      
+                default:
+                    redirect(base_url('usuarios/listar')); 
+                    break;
+            }
+    }
     public function lembrete_senha(){
         
         $this->load->view('usuario_lembrete_senha');
@@ -265,8 +393,47 @@ class Usuarios extends CI_Controller{
         $this->load->view('usuario_dados_pessoais',$data);
     }
     
-    public function __destruct(){
+    public function login() {
+        
+            // Create user object
+        $u = new Usuario();
+		$post = $this->input->post(NULL, TRUE); // returns all POST items with XSS filter
+
+        // Put user supplied data into user object
+        // (no need to validate the post variables in the controller,
+        // if you've set your DataMapper models up with validation rules)
+        $u->username = $post['username'];
+        $u->senha	 = $post['senha'];
+
+        // Attempt to log user in with the data they supplied, using the login function setup in the User model
+        // You might want to have a quick look at that login function up the top of this page to see how it authenticates the user
+        if ($u->login()) {
+        	$data['msg'] = 'Bem-vindo, ' .$u->username. '!';
+        	$data['msg_type'] = 'success';
+        	$userdata = array(
+        			'id'		=> $u->id,
+        			'username'  => $u->username,
+        			'email'     => $u->email,
+                                'credencial' => $u->credencial,
+        			'logged_in' => TRUE
+        	);
+        	
+        	$this->session->set_userdata($userdata);
+
+        }
+        else {
+            $data['msg'] = 'Usuário ou senha inválido.';
+        	$data['msg_type'] = 'error';
+        }
+        
+        redirect('main');
         
     }
+    
+    public function logout() {
+        $this->session->sess_destroy();
+        redirect('main');
+    }
+
 }
 ?>
