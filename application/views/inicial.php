@@ -16,8 +16,18 @@
         
         <?php echo set_breadcrumb(); ?>
         
-        <?php echo (isset($msg) && isset($msg_type) )? msg($msg, $msg_type) : ''; ?>  
-        
+        <?php
+            if(isset($msg) && isset($msg_type)){ ?>
+                <div class="alert <?php echo $msg_type?>" id="alert-success">
+                   <button type="button" class="close" data-dismiss="alert">×</button>
+                   <?php echo $msg; ?>
+                </div> 
+            <?php 
+
+            }else{
+                echo ('');
+            }
+        ?>
         <div class="informacao">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum, risus a suscipit ultrices, velit velit blandit neque, non egestas elit urna at est. Pellentesque tincidunt orci erat, in blandit mauris. 
                 Aliquam tellus lacus, iaculis ut vestibulum a, blandit tincidunt justo. Aliquam facilisis ante imperdiet massa feugiat ac gravida ipsum elementum. </p>
@@ -33,14 +43,18 @@
                     Pellentesque tincidunt orci erat, in blandit mauris. Aliquam tellus lacus, iaculis ut vestibulum a, blandit tincidunt justo.</p>
                 <br>
                 <div class="inputCenter">
-                    <input type="submit" name="submit" value="Preencher formulário de Cadastro"/>
+                    <input type="submit" name="submit" value="Preencher formulário de Cadastro" onclick="window.location.href='usuarios/adicionar/5'"/>
                 </div>
             </div> 
 
             <div class="hr">&nbsp;</div>
-
+            <?php 
+                if ($this->session->userdata('logged_in')){
+                    echo "<button type='button' onclick='alert('Hello world!')'>Click Me!</button>";
+                }else{  
+            ?>
             <div class="pull-right">
-                    <h1>Digite seu Usuario e Senha</h1>
+                    <h1>Digite seu Usuário e Senha</h1>
                     <br>
                     <?php echo form_open('usuarios/login/', array('class' => 'form-horizontal', 'id' => 'form_logar')); ?>
                             <label for="username">Username</label>	
@@ -55,6 +69,6 @@
         </div>
     </div>
 <?php
-    
+    }
     $this->load->view('footer'); 
 ?>   

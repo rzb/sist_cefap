@@ -32,7 +32,7 @@ class Configuracoes extends CI_Controller{
             $email_fromName                          = $post['email_fromName'];
             $email_port                              = $post['email_port'];
             $email_SMTPSecure                        = $post['email_SMTPSecure'];
-            $email_SMTPAuth                          = isset($post['email_SMTPAuth']) ? $post['email_SMTPAuth'] : 1;
+            $email_SMTPAuth                          = $post['email_SMTPAuth'];
             $backup_path                             = $post['backup_path'];
             $backup_frequencia                       = $post['backup_frequencia'];
             $backup_qtde_manter                      = $post['backup_qtde_manter'];
@@ -63,7 +63,7 @@ class Configuracoes extends CI_Controller{
             !($conf->where('param','email_fromName')->update('valor', $email_fromName)) ? $erros++ : NULL;
             !($conf->where('param','email_port')->update('valor', $email_port)) ? $erros++ : NULL;
             !($conf->where('param','email_SMTPSecure')->update('valor', $email_SMTPSecure)) ? $erros++ : NULL;
-            !($conf->where('param','email_SMTPSAuth')->update('valor', $email_SMTPAuth)) ? $erros++ : NULL;
+            !($conf->where('param','email_SMTPAuth')->update('valor', $email_SMTPAuth)) ? $erros++ : NULL;
             !($conf->where('param','backup_path')->update('valor', $backup_path)) ? $erros++ : NULL;
             !($conf->where('param','backup_frequencia')->update('valor', $backup_frequencia)) ? $erros++ : NULL;
             !($conf->where('param','backup_qtde_manter')->update('valor', $backup_qtde_manter)) ? $erros++ : NULL;
@@ -89,10 +89,10 @@ class Configuracoes extends CI_Controller{
             
             if($erros > 0){
                 $data['msg'] = 'Erro ao atualizar dados';
-                $data['msg_type'] = 'error';
+                $data['msg_type'] = 'alert-error';
             }else{
                 $data['msg'] = 'Dados atualizados com sucesso!';
-                $data['msg_type'] = 'success';
+                $data['msg_type'] = 'alert-success';
             };
             
         }else{

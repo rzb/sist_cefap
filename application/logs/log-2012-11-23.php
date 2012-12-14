@@ -2307,3 +2307,871 @@ DEBUG - 2012-11-23 11:05:38 --> File loaded: application/views/footer.php
 DEBUG - 2012-11-23 11:05:38 --> File loaded: application/views/usuario_listar.php
 DEBUG - 2012-11-23 11:05:38 --> Final output sent to browser
 DEBUG - 2012-11-23 11:05:38 --> Total execution time: 0.1207
+DEBUG - 2012-11-23 14:59:45 --> Config Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> Hooks Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 14:59:45 --> URI Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> Router Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> Output Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> Security Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> Input Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> XSS Filtering completed
+DEBUG - 2012-11-23 14:59:45 --> CRSF cookie Set
+DEBUG - 2012-11-23 14:59:45 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-11-23 14:59:45 --> Language Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> Loader Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> Helper loaded: form_helper
+DEBUG - 2012-11-23 14:59:45 --> Helper loaded: html_helper
+DEBUG - 2012-11-23 14:59:45 --> Helper loaded: breadcrumb_helper
+DEBUG - 2012-11-23 14:59:45 --> Helper loaded: url_helper
+DEBUG - 2012-11-23 14:59:45 --> Helper loaded: trajettoria_helper
+DEBUG - 2012-11-23 14:59:45 --> Database Driver Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> Session Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> Helper loaded: string_helper
+DEBUG - 2012-11-23 14:59:45 --> Encrypt Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> Session routines successfully run
+DEBUG - 2012-11-23 14:59:45 --> Language file loaded: language/pt_BR/datamapper_lang.php
+DEBUG - 2012-11-23 14:59:45 --> Helper loaded: inflector_helper
+DEBUG - 2012-11-23 14:59:45 --> Helper loaded: security_helper
+DEBUG - 2012-11-23 14:59:45 --> Config file loaded: application/config/datamapper.php
+DEBUG - 2012-11-23 14:59:45 --> Controller Class Initialized
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_ajudas"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_id"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_created"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_modified"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_UF"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_key"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_status"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_obs"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_credencial"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_tipo"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_newsletter"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 14:59:45 --> Could not find the language line "usuario_ajudas"
+DEBUG - 2012-11-23 14:59:45 --> Pagination Class Initialized
+DEBUG - 2012-11-23 14:59:45 --> File loaded: application/views/header.php
+DEBUG - 2012-11-23 14:59:45 --> Language file loaded: language/pt_BR/breadcrumb_lang.php
+DEBUG - 2012-11-23 14:59:45 --> Config file loaded: application/config/breadcrumb.php
+DEBUG - 2012-11-23 14:59:45 --> File loaded: application/views/footer.php
+DEBUG - 2012-11-23 14:59:45 --> File loaded: application/views/usuario_listar.php
+DEBUG - 2012-11-23 14:59:45 --> Final output sent to browser
+DEBUG - 2012-11-23 14:59:45 --> Total execution time: 0.3688
+DEBUG - 2012-11-23 15:00:02 --> Config Class Initialized
+DEBUG - 2012-11-23 15:00:02 --> Hooks Class Initialized
+DEBUG - 2012-11-23 15:00:02 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 15:00:02 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 15:00:02 --> URI Class Initialized
+DEBUG - 2012-11-23 15:00:02 --> Router Class Initialized
+ERROR - 2012-11-23 15:00:02 --> 404 Page Not Found --> login
+DEBUG - 2012-11-23 15:00:07 --> Config Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Hooks Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 15:00:07 --> URI Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Router Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Output Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Security Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Input Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:07 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:07 --> CRSF cookie Set
+DEBUG - 2012-11-23 15:00:07 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-11-23 15:00:07 --> Language Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Loader Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: form_helper
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: html_helper
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: breadcrumb_helper
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: url_helper
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: trajettoria_helper
+DEBUG - 2012-11-23 15:00:07 --> Database Driver Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Session Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: string_helper
+DEBUG - 2012-11-23 15:00:07 --> Encrypt Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Session routines successfully run
+DEBUG - 2012-11-23 15:00:07 --> Language file loaded: language/pt_BR/datamapper_lang.php
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: inflector_helper
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: security_helper
+DEBUG - 2012-11-23 15:00:07 --> Config file loaded: application/config/datamapper.php
+DEBUG - 2012-11-23 15:00:07 --> Controller Class Initialized
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_ajudas"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_id"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_created"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_modified"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_UF"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_key"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_status"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_obs"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_credencial"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_tipo"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_newsletter"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:00:07 --> Could not find the language line "usuario_ajudas"
+DEBUG - 2012-11-23 15:00:07 --> Form Validation Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Language file loaded: language/pt_BR/form_validation_lang.php
+DEBUG - 2012-11-23 15:00:07 --> Config Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Hooks Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 15:00:07 --> URI Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Router Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Output Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Security Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Input Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:07 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:07 --> CRSF cookie Set
+DEBUG - 2012-11-23 15:00:07 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-11-23 15:00:07 --> Language Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Loader Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: form_helper
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: html_helper
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: breadcrumb_helper
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: url_helper
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: trajettoria_helper
+DEBUG - 2012-11-23 15:00:07 --> Database Driver Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Session Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: string_helper
+DEBUG - 2012-11-23 15:00:07 --> Encrypt Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> Session routines successfully run
+DEBUG - 2012-11-23 15:00:07 --> Language file loaded: language/pt_BR/datamapper_lang.php
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: inflector_helper
+DEBUG - 2012-11-23 15:00:07 --> Helper loaded: security_helper
+DEBUG - 2012-11-23 15:00:07 --> Config file loaded: application/config/datamapper.php
+DEBUG - 2012-11-23 15:00:07 --> Controller Class Initialized
+DEBUG - 2012-11-23 15:00:07 --> File loaded: application/views/header.php
+DEBUG - 2012-11-23 15:00:07 --> Language file loaded: language/pt_BR/breadcrumb_lang.php
+DEBUG - 2012-11-23 15:00:07 --> Config file loaded: application/config/breadcrumb.php
+DEBUG - 2012-11-23 15:00:07 --> File loaded: application/views/footer.php
+DEBUG - 2012-11-23 15:00:07 --> File loaded: application/views/inicial.php
+DEBUG - 2012-11-23 15:00:07 --> Final output sent to browser
+DEBUG - 2012-11-23 15:00:07 --> Total execution time: 0.0784
+DEBUG - 2012-11-23 15:00:12 --> Config Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Hooks Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 15:00:12 --> URI Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Router Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Output Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Security Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Input Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:12 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:12 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:12 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:12 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:12 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:12 --> CRSF cookie Set
+DEBUG - 2012-11-23 15:00:12 --> CSRF token verified 
+DEBUG - 2012-11-23 15:00:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-11-23 15:00:12 --> Language Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Loader Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: form_helper
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: html_helper
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: breadcrumb_helper
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: url_helper
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: trajettoria_helper
+DEBUG - 2012-11-23 15:00:12 --> Database Driver Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Session Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: string_helper
+DEBUG - 2012-11-23 15:00:12 --> Encrypt Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Session routines successfully run
+DEBUG - 2012-11-23 15:00:12 --> Language file loaded: language/pt_BR/datamapper_lang.php
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: inflector_helper
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: security_helper
+DEBUG - 2012-11-23 15:00:12 --> Config file loaded: application/config/datamapper.php
+DEBUG - 2012-11-23 15:00:12 --> Controller Class Initialized
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_ajudas"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_id"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_created"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_modified"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_UF"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_key"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_status"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_obs"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_credencial"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_tipo"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_newsletter"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:00:12 --> Could not find the language line "usuario_ajudas"
+DEBUG - 2012-11-23 15:00:12 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:12 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:12 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:12 --> Form Validation Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Language file loaded: language/pt_BR/form_validation_lang.php
+DEBUG - 2012-11-23 15:00:12 --> Config Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Hooks Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 15:00:12 --> URI Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Router Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Output Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Security Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Input Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:12 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:00:12 --> CRSF cookie Set
+DEBUG - 2012-11-23 15:00:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-11-23 15:00:12 --> Language Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Loader Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: form_helper
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: html_helper
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: breadcrumb_helper
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: url_helper
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: trajettoria_helper
+DEBUG - 2012-11-23 15:00:12 --> Database Driver Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Session Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: string_helper
+DEBUG - 2012-11-23 15:00:12 --> Encrypt Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> Session routines successfully run
+DEBUG - 2012-11-23 15:00:12 --> Language file loaded: language/pt_BR/datamapper_lang.php
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: inflector_helper
+DEBUG - 2012-11-23 15:00:12 --> Helper loaded: security_helper
+DEBUG - 2012-11-23 15:00:12 --> Config file loaded: application/config/datamapper.php
+DEBUG - 2012-11-23 15:00:12 --> Controller Class Initialized
+DEBUG - 2012-11-23 15:00:12 --> File loaded: application/views/header.php
+DEBUG - 2012-11-23 15:00:12 --> File loaded: application/views/footer.php
+DEBUG - 2012-11-23 15:00:12 --> File loaded: application/views/dashboard.php
+DEBUG - 2012-11-23 15:00:12 --> Final output sent to browser
+DEBUG - 2012-11-23 15:00:12 --> Total execution time: 0.0733
+DEBUG - 2012-11-23 15:06:36 --> Config Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> Hooks Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 15:06:36 --> URI Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> Router Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> Output Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> Security Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> Input Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:36 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:36 --> CRSF cookie Set
+DEBUG - 2012-11-23 15:06:36 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-11-23 15:06:36 --> Language Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> Loader Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> Helper loaded: form_helper
+DEBUG - 2012-11-23 15:06:36 --> Helper loaded: html_helper
+DEBUG - 2012-11-23 15:06:36 --> Helper loaded: breadcrumb_helper
+DEBUG - 2012-11-23 15:06:36 --> Helper loaded: url_helper
+DEBUG - 2012-11-23 15:06:36 --> Helper loaded: trajettoria_helper
+DEBUG - 2012-11-23 15:06:36 --> Database Driver Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> Session Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> Helper loaded: string_helper
+DEBUG - 2012-11-23 15:06:36 --> Encrypt Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> Session routines successfully run
+DEBUG - 2012-11-23 15:06:36 --> Language file loaded: language/pt_BR/datamapper_lang.php
+DEBUG - 2012-11-23 15:06:36 --> Helper loaded: inflector_helper
+DEBUG - 2012-11-23 15:06:36 --> Helper loaded: security_helper
+DEBUG - 2012-11-23 15:06:36 --> Config file loaded: application/config/datamapper.php
+DEBUG - 2012-11-23 15:06:36 --> Controller Class Initialized
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_ajudas"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_id"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_created"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_modified"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_UF"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_key"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_status"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_obs"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_credencial"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_tipo"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_newsletter"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:06:36 --> Could not find the language line "usuario_ajudas"
+DEBUG - 2012-11-23 15:06:36 --> Pagination Class Initialized
+DEBUG - 2012-11-23 15:06:36 --> File loaded: application/views/header.php
+DEBUG - 2012-11-23 15:06:36 --> Language file loaded: language/pt_BR/breadcrumb_lang.php
+DEBUG - 2012-11-23 15:06:36 --> Config file loaded: application/config/breadcrumb.php
+DEBUG - 2012-11-23 15:06:36 --> File loaded: application/views/footer.php
+DEBUG - 2012-11-23 15:06:36 --> File loaded: application/views/usuario_listar.php
+DEBUG - 2012-11-23 15:06:36 --> Final output sent to browser
+DEBUG - 2012-11-23 15:06:36 --> Total execution time: 0.1547
+DEBUG - 2012-11-23 15:06:41 --> Config Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> Hooks Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 15:06:41 --> URI Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> Router Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> Output Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> Security Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> Input Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:41 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:41 --> CRSF cookie Set
+DEBUG - 2012-11-23 15:06:41 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-11-23 15:06:41 --> Language Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> Loader Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> Helper loaded: form_helper
+DEBUG - 2012-11-23 15:06:41 --> Helper loaded: html_helper
+DEBUG - 2012-11-23 15:06:41 --> Helper loaded: breadcrumb_helper
+DEBUG - 2012-11-23 15:06:41 --> Helper loaded: url_helper
+DEBUG - 2012-11-23 15:06:41 --> Helper loaded: trajettoria_helper
+DEBUG - 2012-11-23 15:06:41 --> Database Driver Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> Session Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> Helper loaded: string_helper
+DEBUG - 2012-11-23 15:06:41 --> Encrypt Class Initialized
+DEBUG - 2012-11-23 15:06:41 --> Session routines successfully run
+DEBUG - 2012-11-23 15:06:41 --> Language file loaded: language/pt_BR/datamapper_lang.php
+DEBUG - 2012-11-23 15:06:41 --> Helper loaded: inflector_helper
+DEBUG - 2012-11-23 15:06:41 --> Helper loaded: security_helper
+DEBUG - 2012-11-23 15:06:41 --> Config file loaded: application/config/datamapper.php
+DEBUG - 2012-11-23 15:06:41 --> Controller Class Initialized
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_ajudas"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_id"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_created"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_modified"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_UF"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_key"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_status"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_obs"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_credencial"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_tipo"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_newsletter"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:06:41 --> Could not find the language line "usuario_ajudas"
+ERROR - 2012-11-23 15:06:41 --> Severity: Notice  --> Undefined variable: title C:\AppServ\www\sist_cefap\application\views\header.php 14
+DEBUG - 2012-11-23 15:06:41 --> File loaded: application/views/header.php
+DEBUG - 2012-11-23 15:06:41 --> Language file loaded: language/pt_BR/breadcrumb_lang.php
+DEBUG - 2012-11-23 15:06:41 --> Config file loaded: application/config/breadcrumb.php
+DEBUG - 2012-11-23 15:06:41 --> File loaded: application/views/footer.php
+DEBUG - 2012-11-23 15:06:41 --> File loaded: application/views/usuario_trocar_senha.php
+DEBUG - 2012-11-23 15:06:41 --> Final output sent to browser
+DEBUG - 2012-11-23 15:06:41 --> Total execution time: 0.1304
+DEBUG - 2012-11-23 15:06:46 --> Config Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> Hooks Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 15:06:46 --> URI Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> Router Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> Output Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> Security Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> Input Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> CRSF cookie Set
+DEBUG - 2012-11-23 15:06:46 --> CSRF token verified 
+DEBUG - 2012-11-23 15:06:46 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-11-23 15:06:46 --> Language Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> Loader Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> Helper loaded: form_helper
+DEBUG - 2012-11-23 15:06:46 --> Helper loaded: html_helper
+DEBUG - 2012-11-23 15:06:46 --> Helper loaded: breadcrumb_helper
+DEBUG - 2012-11-23 15:06:46 --> Helper loaded: url_helper
+DEBUG - 2012-11-23 15:06:46 --> Helper loaded: trajettoria_helper
+DEBUG - 2012-11-23 15:06:46 --> Database Driver Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> Session Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> Helper loaded: string_helper
+DEBUG - 2012-11-23 15:06:46 --> Encrypt Class Initialized
+DEBUG - 2012-11-23 15:06:46 --> Session routines successfully run
+DEBUG - 2012-11-23 15:06:46 --> Language file loaded: language/pt_BR/datamapper_lang.php
+DEBUG - 2012-11-23 15:06:46 --> Helper loaded: inflector_helper
+DEBUG - 2012-11-23 15:06:46 --> Helper loaded: security_helper
+DEBUG - 2012-11-23 15:06:46 --> Config file loaded: application/config/datamapper.php
+DEBUG - 2012-11-23 15:06:46 --> Controller Class Initialized
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_ajudas"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_id"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_created"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_modified"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_UF"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_key"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_status"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_obs"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_credencial"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_tipo"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_newsletter"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:06:46 --> Could not find the language line "usuario_ajudas"
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:46 --> Final output sent to browser
+DEBUG - 2012-11-23 15:06:46 --> Total execution time: 0.1197
+DEBUG - 2012-11-23 15:06:52 --> Config Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> Hooks Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 15:06:52 --> URI Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> Router Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> Output Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> Security Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> Input Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:52 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:06:52 --> CRSF cookie Set
+DEBUG - 2012-11-23 15:06:52 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-11-23 15:06:52 --> Language Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> Loader Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> Helper loaded: form_helper
+DEBUG - 2012-11-23 15:06:52 --> Helper loaded: html_helper
+DEBUG - 2012-11-23 15:06:52 --> Helper loaded: breadcrumb_helper
+DEBUG - 2012-11-23 15:06:52 --> Helper loaded: url_helper
+DEBUG - 2012-11-23 15:06:52 --> Helper loaded: trajettoria_helper
+DEBUG - 2012-11-23 15:06:52 --> Database Driver Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> Session Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> Helper loaded: string_helper
+DEBUG - 2012-11-23 15:06:52 --> Encrypt Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> Session routines successfully run
+DEBUG - 2012-11-23 15:06:52 --> Language file loaded: language/pt_BR/datamapper_lang.php
+DEBUG - 2012-11-23 15:06:52 --> Helper loaded: inflector_helper
+DEBUG - 2012-11-23 15:06:52 --> Helper loaded: security_helper
+DEBUG - 2012-11-23 15:06:52 --> Config file loaded: application/config/datamapper.php
+DEBUG - 2012-11-23 15:06:52 --> Controller Class Initialized
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_ajudas"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_id"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_created"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_modified"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_UF"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_key"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_status"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_obs"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_credencial"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_tipo"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_newsletter"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:06:52 --> Could not find the language line "usuario_ajudas"
+DEBUG - 2012-11-23 15:06:52 --> Pagination Class Initialized
+DEBUG - 2012-11-23 15:06:52 --> File loaded: application/views/header.php
+DEBUG - 2012-11-23 15:06:52 --> Language file loaded: language/pt_BR/breadcrumb_lang.php
+DEBUG - 2012-11-23 15:06:52 --> Config file loaded: application/config/breadcrumb.php
+DEBUG - 2012-11-23 15:06:52 --> File loaded: application/views/footer.php
+DEBUG - 2012-11-23 15:06:52 --> File loaded: application/views/usuario_listar.php
+DEBUG - 2012-11-23 15:06:52 --> Final output sent to browser
+DEBUG - 2012-11-23 15:06:52 --> Total execution time: 0.1153
+DEBUG - 2012-11-23 15:08:54 --> Config Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> Hooks Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 15:08:54 --> URI Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> Router Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> Output Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> Security Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> Input Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:08:54 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:08:54 --> CRSF cookie Set
+DEBUG - 2012-11-23 15:08:54 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-11-23 15:08:54 --> Language Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> Loader Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> Helper loaded: form_helper
+DEBUG - 2012-11-23 15:08:54 --> Helper loaded: html_helper
+DEBUG - 2012-11-23 15:08:54 --> Helper loaded: breadcrumb_helper
+DEBUG - 2012-11-23 15:08:54 --> Helper loaded: url_helper
+DEBUG - 2012-11-23 15:08:54 --> Helper loaded: trajettoria_helper
+DEBUG - 2012-11-23 15:08:54 --> Database Driver Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> Session Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> Helper loaded: string_helper
+DEBUG - 2012-11-23 15:08:54 --> Encrypt Class Initialized
+DEBUG - 2012-11-23 15:08:54 --> Session routines successfully run
+DEBUG - 2012-11-23 15:08:54 --> Language file loaded: language/pt_BR/datamapper_lang.php
+DEBUG - 2012-11-23 15:08:54 --> Helper loaded: inflector_helper
+DEBUG - 2012-11-23 15:08:54 --> Helper loaded: security_helper
+DEBUG - 2012-11-23 15:08:54 --> Config file loaded: application/config/datamapper.php
+DEBUG - 2012-11-23 15:08:54 --> Controller Class Initialized
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_ajudas"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_id"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_created"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_modified"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_UF"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_key"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_status"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_obs"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_credencial"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_tipo"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_newsletter"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:08:54 --> Could not find the language line "usuario_ajudas"
+ERROR - 2012-11-23 15:08:54 --> Severity: Notice  --> Undefined variable: title C:\AppServ\www\sist_cefap\application\views\header.php 14
+DEBUG - 2012-11-23 15:08:54 --> File loaded: application/views/header.php
+DEBUG - 2012-11-23 15:08:54 --> Language file loaded: language/pt_BR/breadcrumb_lang.php
+DEBUG - 2012-11-23 15:08:54 --> Config file loaded: application/config/breadcrumb.php
+DEBUG - 2012-11-23 15:08:54 --> File loaded: application/views/footer.php
+DEBUG - 2012-11-23 15:08:54 --> File loaded: application/views/usuario_trocar_senha.php
+DEBUG - 2012-11-23 15:08:54 --> Final output sent to browser
+DEBUG - 2012-11-23 15:08:54 --> Total execution time: 0.1671
+DEBUG - 2012-11-23 15:09:32 --> Config Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> Hooks Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> Utf8 Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> UTF-8 Support Enabled
+DEBUG - 2012-11-23 15:09:32 --> URI Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> Router Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> Output Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> Security Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> Input Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:09:32 --> XSS Filtering completed
+DEBUG - 2012-11-23 15:09:32 --> CRSF cookie Set
+DEBUG - 2012-11-23 15:09:32 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-11-23 15:09:32 --> Language Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> Loader Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> Helper loaded: form_helper
+DEBUG - 2012-11-23 15:09:32 --> Helper loaded: html_helper
+DEBUG - 2012-11-23 15:09:32 --> Helper loaded: breadcrumb_helper
+DEBUG - 2012-11-23 15:09:32 --> Helper loaded: url_helper
+DEBUG - 2012-11-23 15:09:32 --> Helper loaded: trajettoria_helper
+DEBUG - 2012-11-23 15:09:32 --> Database Driver Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> Session Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> Helper loaded: string_helper
+DEBUG - 2012-11-23 15:09:32 --> Encrypt Class Initialized
+DEBUG - 2012-11-23 15:09:32 --> Session routines successfully run
+DEBUG - 2012-11-23 15:09:32 --> Language file loaded: language/pt_BR/datamapper_lang.php
+DEBUG - 2012-11-23 15:09:32 --> Helper loaded: inflector_helper
+DEBUG - 2012-11-23 15:09:32 --> Helper loaded: security_helper
+DEBUG - 2012-11-23 15:09:32 --> Config file loaded: application/config/datamapper.php
+DEBUG - 2012-11-23 15:09:32 --> Controller Class Initialized
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_ajudas"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_id"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_created"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_modified"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_UF"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_key"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_status"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_obs"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_credencial"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_tipo"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_newsletter"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_conta"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_fclts"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_fclts_coordenadas"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_projetos"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_projetos_criados"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_boletos"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_lancamentos"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_lancamentos_criados"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_lancamentos_cancelados"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_formularios"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_respostas"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_configuracoes"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_logs"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_msgs_enviadas"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_msgs_recebidas"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_agdms"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_agdms_aprovados"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_periodos"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_relatorios"
+ERROR - 2012-11-23 15:09:32 --> Could not find the language line "usuario_ajudas"
+DEBUG - 2012-11-23 15:09:32 --> Final output sent to browser
+DEBUG - 2012-11-23 15:09:32 --> Total execution time: 0.1266

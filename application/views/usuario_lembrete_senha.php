@@ -3,7 +3,7 @@
     echo set_breadcrumb(); 
 ?>
 <div id="main_content">
-    <div class="well"><h2>Editar Dados Pessoais</h2></div>
+    <div class="well"><h2>Lembrete de Senha</h2></div>
 	          
             <?php
             $attributes = array(

@@ -23,7 +23,7 @@
 
         <div class="pull-left">
             <ul>
-                <li><a href="<?php echo base_url('usuarios/editar'); ?>">Editar meu dados cadastrais</a></li>
+                <li><a href="<?php echo base_url("usuarios/editar/"); ?>">Editar meu dados cadastrais</a></li>
                 <li><a href="<?php echo base_url('usuarios/trocar_senha'); ?>">Trocar minha senha de acesso ao sistema</a></li> <!-- Tem que passar a senha do usuário pela URL para trocar senha. -->
                 <li>Editar as configurações do sistema</li>
                 <li><a href="<?php echo base_url('usuarios/listar'); ?>">Listar</a></li>

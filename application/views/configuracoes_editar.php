@@ -62,9 +62,15 @@
             <div class="control-group">
                 <label for="email_SMTPAuth" class="control-label">Email - SMTP Auth</label>
                 <div class="controls">
-                    <input type="radio" name="email_SMTPAuth" id="email_SMTPAuth" value="true">Sim
-                    &nbsp;
-                    <input type="radio" name="email_SMTPAuth" id="email_SMTPAuth" value="false">Não
+                    
+                    <?php if($email_SMTPAuth->valor == 0){
+                        echo "<input type='radio' name='email_SMTPAuth' id='email_SMTPAuth' value='1'>Sim&nbsp;";
+                        echo "<input type='radio' name='email_SMTPAuth' id='email_SMTPAuth' value='0' checked='checked'>Não";
+                    }else{
+                        echo "<input type='radio' name='email_SMTPAuth' id='email_SMTPAuth' value='1' checked='checked'>Sim&nbsp;";
+                        echo "<input type='radio' name='email_SMTPAuth' id='email_SMTPAuth' value='0'>Não";
+                    }?>
+                                        
                 </div>    
             </div>
             <div class="control-group">
@@ -77,7 +83,7 @@
                 <label for="backup_frequencia" class="control-label">Backup - frequencia</label>
                 <div class="controls">
                     <select name="backup_frequencia" id="backup_frequencia">
-                        <option value="diario" SELECTED>Diário</option>
+                        <option value="diario">Diário</option>
                         <option value="2 dias">cada 2 dias</option>
                         <option value="3 dias">cada 3 dias</option>
                         <option value="4 dias">cada 4 dias</option>
@@ -184,7 +190,7 @@
             <div class="control-group">
                 <label for="creditos_texto_boleto" class="control-label">Créditos - texto das "instruções" do boleto</label>
                 <div class="controls">
-                    <textarea name="creditos_texto_boleto" id="creditos_texto_boleto"></textarea>
+                    <textarea name="creditos_texto_boleto" id="creditos_texto_boleto"><?php echo empty( $creditos_texto_boleto->valor ) ? $creditos_texto_boleto->valor_padrao : $creditos_texto_boleto->valor; ?> </textarea>
                 </div>    
             </div>
             <div class="control-group">

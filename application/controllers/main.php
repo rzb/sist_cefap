@@ -4,6 +4,7 @@ class Main extends CI_Controller {
 
 	public function index()
 	{
+            
 		$data['title'] = 'Página inicial';
 		if ( $this->session->userdata('logged_in')) {
                     // @TODO implementar direcionamento ao dashboard de acordo com a credencial
@@ -12,28 +13,14 @@ class Main extends CI_Controller {
                     $data['msg_type'] = 'success';
                     
                     $u = $this->session->userdata('credencial');
-                    switch ($u){
-                        case CREDENCIAL_USUARIO_COMUM:
-                            $this->load->view('dashboard_comum',$data);
-                            break;
-
-                        case CREDENCIAL_USUARIO_ADMIN:
-                            $this->load->view('dashboard',$data);
-                            break;
-
-                        case CREDENCIAL_USUARIO_SUPERADMIN:
-                            $this->load->view('dashboard_superadmin',$data);
-                            break;
-
-                        default:
-                            echo'erro ao validar credencial',$data;
-                            break;
-                    }
+                    
+                    $view = 'dashboard';
+                    $this->load->view($view,$data);
+                    
                 }else{
                     $view = 'inicial';
                     $this->load->view($view,$data);
                 }
-                
 	}
 
 }

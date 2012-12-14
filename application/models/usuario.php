@@ -27,7 +27,7 @@ class Usuario extends DataMapper {
 				array(
 						'field'	=> 'senha_conf',
 						'label'	=> 'Redigite a Senha',
-						'rules'	=> array('required', 'min_length' => 6, 'matches'=>'senha')
+						'rules'	=> array('matches'=>'senha')
 				),
 				array(
 						'field'	=> 'nome',
@@ -87,7 +87,7 @@ class Usuario extends DataMapper {
 				array(
 						'field'	=> 'cpf',
 						'label'	=> 'CPF',
-						'rules'	=> array('required')
+						'rules'	=> array('required','trim','unique')
 				),
 				array(
 						'field'	=> 'email',
@@ -95,9 +95,9 @@ class Usuario extends DataMapper {
 						'rules'	=> array('required', 'trim', 'valid_email')
 				),
 				array(
-						'field'	=> 'nivel_academico',
-						'label'	=> 'Nível Acadêmico',
-						'rules'	=> ''
+						'field'	=> 'tipo',
+						'label'	=> 'Tipo',
+						'rules'	=> array('required')
 				)
 		);
 
