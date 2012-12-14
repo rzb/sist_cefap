@@ -70,42 +70,78 @@
                         <th><a href='<?php echo base_url("usuarios/listar/id/$limit/$offset"); ?>'>ID
                             <?php 
                                 if(isset($img) && $img == 'id'){
-                                    echo '<i class="icon-chevron-down"></i>';
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/id/$limit/$offset/DESC");
+                                    echo '"<i class="icon-chevron-down"></i>';
+                                    
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/id/$limit/$offset/ASC");
+                                    echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
                             </a></th>
                         <th><a href='<?php echo base_url("usuarios/listar/nome/$limit/$offset"); ?>'>Nome
                             <?php 
                                 if(isset($img) && $img == 'nome'){
-                                    echo '<i class="icon-chevron-down"></i>';
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/nome/$limit/$offset/DESC");
+                                    echo '"<i class="icon-chevron-down"></i>';
+                                    
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/nome/$limit/$offset/ASC");
+                                    echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>                  
                             </a></th>
                         <th><a href='<?php echo base_url("usuarios/listar/email/$limit/$offset"); ?>'>E-mail
                             <?php 
                                 if(isset($img) && $img == 'email'){
-                                    echo '<i class="icon-chevron-down"></i>';
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/email/$limit/$offset/DESC");
+                                    echo '"<i class="icon-chevron-down"></i>';
+                                    
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/email/$limit/$offset/ASC");
+                                    echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
                             </a></th>
                         <th><a href='<?php echo base_url("usuarios/listar/instituicao/$limit/$offset"); ?>'>Instituição
                             <?php 
                                 if(isset($img) && $img == 'instituicao'){
-                                    echo '<i class="icon-chevron-down"></i>';
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/instituicao/$limit/$offset/DESC");
+                                    echo '"<i class="icon-chevron-down"></i>';
+                                    
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/instituicao/$limit/$offset/ASC");
+                                    echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
                             </a></th>
                         <th><a href='<?php echo base_url("usuarios/listar/tipo/$limit/$offset"); ?>'>Tipo
                             <?php 
                                 if(isset($img) && $img == 'tipo'){
-                                    echo '<i class="icon-chevron-down"></i>';
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/tipo/$limit/$offset/DESC");
+                                    echo '"<i class="icon-chevron-down"></i>';
+                                      
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/tipo/$limit/$offset/ASC");
+                                    echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
                             </a></th>
                         <th><a href='<?php echo base_url("usuarios/listar/status/$limit/$offset"); ?>'>Status
                             <?php 
                                 if(isset($img) && $img == 'status'){
-                                    echo '<i class="icon-chevron-down"></i>';
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/status/$limit/$offset/DESC");
+                                    echo '"<i class="icon-chevron-down"></i>';
+                                    
+                                    echo '<a href="';
+                                    echo base_url("usuarios/listar/status/$limit/$offset/ASC");
+                                    echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
                             </a></th>
@@ -227,7 +263,7 @@
                                     }                                
                                 ?>
 
-                                <option value='dados_pessoais'>Dados Pessoais</option>
+                                <option value='<?php echo ("dados_pessoais/$u->id");?>' data-toggle="modal">Dados Pessoais</option>
                                 <option value='<?php echo ("usuarios/editar/$u->id");?>'>Editar Dados</option>
                                 <option value="<?php echo ("mensagens/escrever"); ?>">Enviar Mensagem</option>
                                 <option value="<?php echo ("relatorios/logdeuso"); ?>">Log de Acesso</option>
@@ -236,11 +272,11 @@
                                 
                                 
                                 <?php if($this->uRole == CREDENCIAL_USUARIO_ADMIN){
-                                            if($u->credencial == CREDENCIAL_USUARIO_ADMIN || $u->credencial == CREDENCIAL_USUARIO_COMUM){
-                                                echo "<option value=";
-                                                echo ("usuarios/trocar_senha/$u->id");
-                                                echo '">Trocar Senha</option>';
-                                            }
+                                    if($u->credencial == CREDENCIAL_USUARIO_ADMIN || $u->credencial == CREDENCIAL_USUARIO_COMUM){
+                                        echo "<option value=";
+                                        echo ("usuarios/trocar_senha/$u->id");
+                                        echo '">Trocar Senha</option>';
+                                    }
                                     }else {
                                             echo "<option value=";
                                             echo ("usuarios/trocar_senha/$u->id");
@@ -333,11 +369,12 @@
     </div>
 
     <?php 
-    require_once 'usuario_dados_pessoais.php';
+    //require_once 'usuario_dados_pessoais.php';
+    //ver o código do renato no sistema de boletos para recuperar essa página com AJAX.
+    //para que o conteúdo da próxima view só seja carregado quando o usuário selecionar a opção de 'dados pessoais'.
     
-        foreach($page as $p){
-            echo $p;
-        }
+        echo $page;
+        
     ?>
     
 </div>
@@ -402,41 +439,62 @@
                     }
                 }
             }else {
-                if (option == 'selecione'){
-                   alert('Selecione outra opção');
-               }
-               
-                if(option == 'dados_pessoais'){
-                
-                    $("#myModal").on("show", function() {    // wire up the OK button to dismiss the modal when shown
-                        $("#myModal a.btn").on("click", function(e) {
-                            console.log("button pressed");   // just as an example...
-                            $("#myModal").modal('hide');     // dismiss the dialog
+            
+                switch(option){
+                    case 'selecione':
+                        alert('Selecione outra opção');  
+                    break;
+
+                    case 'usuarios/listar/dados_pessoais' +id:
+                        $(document).ready(function() {
+	
+                        // Support for AJAX loaded modal window.
+                        // Focuses on first input textbox after it loads the window.
+                            $('[data-toggle="modal"]').click(function(e) {
+                                e.preventDefault();
+                                var url = $(this).attr('href');
+                                if (url.indexOf('#') == 0) {
+                                    $(url).modal('open');
+                                } else {
+                                    $.get(url, function(data) {
+                                        $('<div class="modal hide fade">' + data + '</div>').modal();
+                                    }).success(function() { $('input:text:visible:first').focus(); });
+                                }
+                            });
+                            
+                            /*$("#myModal").on("show", function() {    // wire up the OK button to dismiss the modal when shown
+                                $("#myModal a.btn").on("click", function(e) {
+                                    console.log("button pressed");   // just as an example...
+                                    $("#myModal").modal('hide');     // dismiss the dialog
+                                });
+                            });
+
+                            $("#myModal").on("hide", function() {    // remove the event listeners when the dialog is dismissed
+                                $("#myModal a.btn").off("click");
+                            });
+
+                            $("#myModal").on("hidden", function() {  // remove the actual elements from the DOM when fully hidden
+                                $("#myModal").remove();
+                            });
+
+                            $("#myModal").modal({                    // finally, wire up the actual modal functionality and show the dialog
+                              "backdrop"  : "static",
+                              "keyboard"  : true,
+                              "show"      : true                     // ensure the modal is shown immediately
+                            });
+                        });*/
+
                         });
-                    });
+                        break;
 
-                    $("#myModal").on("hide", function() {    // remove the event listeners when the dialog is dismissed
-                        $("#myModal a.btn").off("click");
-                    });
-
-                    $("#myModal").on("hidden", function() {  // remove the actual elements from the DOM when fully hidden
-                        $("#myModal").remove();
-                    });
-
-                    $("#myModal").modal({                    // finally, wire up the actual modal functionality and show the dialog
-                      "backdrop"  : "static",
-                      "keyboard"  : true,
-                      "show"      : true                     // ensure the modal is shown immediately
-                    });
-                }
-               
-               else{
-                var id = jQuery(this).closest("tr.listar_usuario").attr("id").split("-");
-                id = id[1];
-                window.location.href = '<?php echo base_url(''); ?>' + option;
+                    default:
+                        var id = jQuery(this).closest("tr.listar_usuario").attr("id").split("-");
+                        id = id[1];
+                        window.location.href = '<?php echo base_url(''); ?>' + option;
+                     break;
                 }  
            }
-           });    
+        });    
     });
     
     

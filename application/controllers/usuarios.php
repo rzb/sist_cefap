@@ -34,6 +34,8 @@ class Usuarios extends CI_Controller{
                     $order = $this->uri->segment(3, NULL); #ordena de acordo com a opção escolhida pelo usuário
                     $limit = $this->uri->segment(4, 5); #limite de resultados por página
                     $page = $this->uri->segment(5, 1); //número da página 
+                    $exib = $this->uri->segment(6,'CRESC');
+                    //criar um sexto segmento que vai passar o valor de CRES ou DECRES.
                     
                     $offset = ($page - 1) * $limit; //calcula o offset para exibir os resultados de acordo com a página que o usuário clicar
                     if($offset <= 0){
@@ -62,10 +64,10 @@ class Usuarios extends CI_Controller{
                         case CREDENCIAL_USUARIO_ADMIN :
                             $user->select('id, nome, email, tipo, status, instituicao, credencial')->where_not_in('status', STATUS_USUARIO_EXCLUIDO)->limit($limit, $offset); 
                             if(empty($order)){
-                                $user->order_by('id', 'ASC');
+                                $user->order_by('id', $exib);
                                 
                             }else{
-                                $user->order_by($order, 'DESC');
+                                $user->order_by($order, $exib);
                                 $data['img'] = $order;
                             }
                             $user->get();
@@ -84,15 +86,15 @@ class Usuarios extends CI_Controller{
                 /* PAGINAÇÃO */
                     $pagination = $total / $limit;
                     $page = ceil($pagination);
-                    
+                    $links = "";
                     for($i = 1; $i <= $page; $i++){
                         $order = $this->uri->segment(3, 'id');
                         
                         $url = base_url("usuarios/listar/$order/$limit/$i");
-                        $links = "<a href='$url'>$i</a>";   
+                        $links .= "<a href='$url'>$i</a>";   
                         
                         }     
-                        $data['page'][] =  $links;
+                        $data['page'] =  $links;
                    /*END PAGINAÇÃO*/     
         
          $data['title'] = 'Lista de Usuários';
@@ -449,7 +451,7 @@ class Usuarios extends CI_Controller{
     
     public function dados_pessoais(){
         
-        $id = $this->uri->segment(3);
+        /*$id = $this->uri->segment(3);
         
         $user = new Usuario();
         $user->where('id', $id);
@@ -457,7 +459,7 @@ class Usuarios extends CI_Controller{
             
         $data['user'] = $user;
         
-        $this->load->view('usuario_dados_pessoais',$data);
+        $this->load->view('usuario_dados_pessoais');*/
     }
     
     public function login() {
