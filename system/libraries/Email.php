@@ -1683,10 +1683,10 @@ class CI_Email {
 		if ($this->smtp_crypto == 'ssl')
 			$ssl = 'ssl://';
 		$this->_smtp_connect = fsockopen($ssl.$this->smtp_host,
-										$this->smtp_port,
-										$errno,
-										$errstr,
-										$this->smtp_timeout);
+                    $this->smtp_port,
+                    $errno,
+                    $errstr,
+                    $this->smtp_timeout);
 
 		if ( ! is_resource($this->_smtp_connect))
 		{

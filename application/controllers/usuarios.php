@@ -34,50 +34,39 @@ class Usuarios extends CI_Controller{
                     $order = $this->uri->segment(3, NULL); #ordena de acordo com a opção escolhida pelo usuário
                     $limit = $this->uri->segment(4, 5); #limite de resultados por página
                     $page = $this->uri->segment(5, 1); //número da página 
-                    $exib = $this->uri->segment(6,'CRESC');
-                    //criar um sexto segmento que vai passar o valor de CRES ou DECRES.
+                    $exib = $this->uri->segment(6,'CRESC'); //segmento que vai passar o valor de CRES ou DECRES.
+                    
                     
                     $offset = ($page - 1) * $limit; //calcula o offset para exibir os resultados de acordo com a página que o usuário clicar
                     if($offset <= 0){
                         $offset = 1;
                     }                    
                     $user = new Usuario();
+                    
                     switch ($this->uRole){ //verifica a credencial do usuário. Se for superadmin, poderá visualizar tudo. Se for admin, não poderá visualizar os usuário que estiverem com status excluido.
                         case CREDENCIAL_USUARIO_SUPERADMIN :
-                            $user->select('id, nome, email, tipo, status, instituicao, credencial')->limit($limit, $offset); 
-                            if(empty($order)){
-                                $user->order_by('id', 'ASC');
-                                
-                            }else{
-                                $user->order_by($order, 'DESC');
-                                $data['img'] = $order;
-                            }
-                            
-                            $user->get();
-
-                            $data['user'] = $user; 
-                            $data['limit'] = $limit;
-                            $data['offset'] = $offset;
-                            $data['perpage'] = $page;
+                            $user->select('id, nome, email, tipo, status, instituicao, credencial')->limit($limit, $offset);
                         break;
                         //usuário com a credencial de admin não poderá ver a lista de usuários excluídos.
                         case CREDENCIAL_USUARIO_ADMIN :
                             $user->select('id, nome, email, tipo, status, instituicao, credencial')->where_not_in('status', STATUS_USUARIO_EXCLUIDO)->limit($limit, $offset); 
-                            if(empty($order)){
-                                $user->order_by('id', $exib);
-                                
-                            }else{
-                                $user->order_by($order, $exib);
-                                $data['img'] = $order;
-                            }
-                            $user->get();
-
-                            $data['user'] = $user; 
-                            $data['limit'] = $limit;
-                            $data['offset'] = $offset;
-                            $data['perpage'] = $page;
                         break;
-                        }   
+                        }
+                        
+                    if(empty($order)){
+                        $user->order_by('id', $exib);
+
+                    }else{
+                        $user->order_by($order, $exib);
+                        $data['img'] = $order;
+                    }
+                    $user->get();
+
+                    $data['user'] = $user; 
+                    $data['limit'] = $limit;
+                    $data['offset'] = $offset;
+                    $data['perpage'] = $page;
+                
                 }else{
                     $data['msg'] = '<strong>Nenhum usuário encontrado.</strong>';
                     $data['msg_type'] = 'alert-block';
@@ -95,7 +84,7 @@ class Usuarios extends CI_Controller{
                         
                         }     
                         $data['page'] =  $links;
-                   /*END PAGINAÇÃO*/     
+                 /*END PAGINAÇÃO*/     
         
          $data['title'] = 'Lista de Usuários';
          $this->load->view('usuario_listar',$data);
@@ -189,7 +178,7 @@ class Usuarios extends CI_Controller{
 				
 				$this->load->library('email');
 				
-				$this->email->from('renato.trajettoria@trajettoria.com', 'Renato');
+				$this->email->from('thais.dias@trajettoria.com', 'Thais');
 				$this->email->to($u->email);
 				
 				$this->email->subject('Confirmação de Cadastro');
@@ -305,7 +294,7 @@ class Usuarios extends CI_Controller{
 		}
 			
 		$data['u'] = $u;
-		$data['currUser'] = $this->currUser;
+		$data['currUser'] = $this->uRole;
 		$data['title'] = 'Edição de Usuário';
 		$this->load->view('usuario_editar', $data);
 

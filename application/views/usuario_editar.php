@@ -162,7 +162,7 @@
 				</div>
 			</div>
 			
-			<?php if ($currUser->credencial == CREDENCIAL_USUARIO_SUPERADMIN) : ?>
+			<?php if ($this->uRole == CREDENCIAL_USUARIO_SUPERADMIN) : ?>
                  <div class="control-group">
                  	<label class="control-label" for="credencial">Credencial</label>
                  	<div class="controls">

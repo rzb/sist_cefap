@@ -263,7 +263,7 @@
                                     }                                
                                 ?>
 
-                                <option value='<?php echo ("dados_pessoais/$u->id");?>' data-toggle="modal">Dados Pessoais</option>
+                                <option value='dados_pessoais' data-toggle="modal">Dados Pessoais</option>
                                 <option value='<?php echo ("usuarios/editar/$u->id");?>'>Editar Dados</option>
                                 <option value="<?php echo ("mensagens/escrever"); ?>">Enviar Mensagem</option>
                                 <option value="<?php echo ("relatorios/logdeuso"); ?>">Log de Acesso</option>
@@ -445,47 +445,16 @@
                         alert('Selecione outra opção');  
                     break;
 
-                    case 'usuarios/listar/dados_pessoais' +id:
-                        $(document).ready(function() {
-	
-                        // Support for AJAX loaded modal window.
-                        // Focuses on first input textbox after it loads the window.
-                            $('[data-toggle="modal"]').click(function(e) {
-                                e.preventDefault();
-                                var url = $(this).attr('href');
-                                if (url.indexOf('#') == 0) {
-                                    $(url).modal('open');
-                                } else {
-                                    $.get(url, function(data) {
-                                        $('<div class="modal hide fade">' + data + '</div>').modal();
-                                    }).success(function() { $('input:text:visible:first').focus(); });
-                                }
-                            });
-                            
-                            /*$("#myModal").on("show", function() {    // wire up the OK button to dismiss the modal when shown
-                                $("#myModal a.btn").on("click", function(e) {
-                                    console.log("button pressed");   // just as an example...
-                                    $("#myModal").modal('hide');     // dismiss the dialog
-                                });
-                            });
-
-                            $("#myModal").on("hide", function() {    // remove the event listeners when the dialog is dismissed
-                                $("#myModal a.btn").off("click");
-                            });
-
-                            $("#myModal").on("hidden", function() {  // remove the actual elements from the DOM when fully hidden
-                                $("#myModal").remove();
-                            });
-
-                            $("#myModal").modal({                    // finally, wire up the actual modal functionality and show the dialog
-                              "backdrop"  : "static",
-                              "keyboard"  : true,
-                              "show"      : true                     // ensure the modal is shown immediately
-                            });
-                        });*/
-
+                    case 'dados_pessoais':
+                        jQuery.ajax({
+                            url: "<?php echo base_url("usuario_dados_pessoais.php"); ?>-id=" + id,
+                            dataType: "html"
+                        }).done(function(data){
+                            jQuery("#myModal").html(data);
+                            jQuery("#myModal").modal("show");
                         });
-                        break;
+                        //não está funcionando!
+                    break;
 
                     default:
                         var id = jQuery(this).closest("tr.listar_usuario").attr("id").split("-");

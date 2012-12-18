@@ -11,7 +11,19 @@
            Etiam tempor laoreet neque id sodales. Suspendisse potenti. Morbi sed ante in justo vestibulum rhoncus. Pellentesque tincidunt molestie pretium.
         </p>
         
-        <?php echo (isset($msg) && isset($msg_type) )? msg($msg, $msg_type) : ''; ?>  
+        <?php
+            if(isset($msg) && isset($msg_type)){ ?>
+               <div class="alert <?php echo $msg_type?>" id="alert-success">
+                   <button type="button" class="close" data-dismiss="alert">×</button>
+                   <?php echo $msg; ?>
+               </div> 
+            <?php 
+
+            }else{
+                echo ('');
+
+            }
+        ?>   
     </div>
     <div class="well"><h2>Informações Gerais</h2></div>
     
@@ -207,8 +219,8 @@
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <input type="submit" name="submit" id="enviar">
-                    <a href="">Cancelar</a>
+                    <input type="submit" name="submit" value="Salvar">
+                    <input type="submit" name="submit" value="Cancelar" onclick="window.location.href='inicial.php'">
                 </div>    
             </div>
     </form>
