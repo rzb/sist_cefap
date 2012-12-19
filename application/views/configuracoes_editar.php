@@ -220,7 +220,7 @@
             <div class="control-group">
                 <div class="controls">
                     <input type="submit" name="submit" value="Salvar">
-                    <input type="submit" name="submit" value="Cancelar" onclick="window.location.href='inicial.php'">
+                    <input type="submit" name="submit" value="Cancelar" onclick="<?php base_url('usuarios/listar'); ?>">
                 </div>    
             </div>
     </form>

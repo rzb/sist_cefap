@@ -11,15 +11,19 @@
    .form-actions {width:800px;}
    .user_info {margin-left:30px; margin-top:30px; width: 800px;}
    .pull-right #Creditos {width:500px;}
-   h1 {font-size: 30px; color: #B1C5C9}
+   h1 {font-size: 30px; color: #B1C5C9; float: left;}
    #myModal {height:800px; width: 885px;}
    .modal.fade.in {top:27%; bottom: 10%;}
-   .modal-body {max-height:600px;}
+   .modal-body {max-height:588px;}
    .modal {left: 41%;}
    .btn-right {margin-left: 550px;}
    .btn-right-creditos {margin-left: 389px; margin-top: -30px;}
    .modal th {background-color: #ccc}
 </style>
+
+<div id="myModal" class="modal hide fade">
+</div>
+
 
 <div id="main_content">	
    <div id="breadcrumbs"><?php    echo set_breadcrumb(); ?> </div> 
@@ -65,82 +69,82 @@
 <table class="table">
     <caption >Lista de Usuários</caption>
         <thead>
-                <tr>
+                <tr>    
                         <th><input type="checkbox" name="selectALL" id="checkAll" onClick="toggleChecked(this.checked)"> </th>
-                        <th><a href='<?php echo base_url("usuarios/listar/id/$limit/$offset"); ?>'>ID
+                        <th><a href='<?php echo base_url("usuarios/listar/id/$limit/$perpage"); ?>'>ID
                             <?php 
                                 if(isset($img) && $img == 'id'){
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/id/$limit/$offset/DESC");
+                                    echo base_url("usuarios/listar/id/$limit/$perpage/DESC");
                                     echo '"<i class="icon-chevron-down"></i>';
                                     
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/id/$limit/$offset/ASC");
+                                    echo base_url("usuarios/listar/id/$limit/$perpage/ASC");
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
                             </a></th>
-                        <th><a href='<?php echo base_url("usuarios/listar/nome/$limit/$offset"); ?>'>Nome
+                        <th><a href='<?php echo base_url("usuarios/listar/nome/$limit/$perpage"); ?>'>Nome
                             <?php 
                                 if(isset($img) && $img == 'nome'){
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/nome/$limit/$offset/DESC");
+                                    echo base_url("usuarios/listar/nome/$limit/$perpage/DESC");
                                     echo '"<i class="icon-chevron-down"></i>';
                                     
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/nome/$limit/$offset/ASC");
+                                    echo base_url("usuarios/listar/nome/$limit/$perpage/ASC");
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>                  
                             </a></th>
-                        <th><a href='<?php echo base_url("usuarios/listar/email/$limit/$offset"); ?>'>E-mail
+                        <th><a href='<?php echo base_url("usuarios/listar/email/$limit/$perpage"); ?>'>E-mail
                             <?php 
                                 if(isset($img) && $img == 'email'){
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/email/$limit/$offset/DESC");
+                                    echo base_url("usuarios/listar/email/$limit/$perpage/DESC");
                                     echo '"<i class="icon-chevron-down"></i>';
                                     
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/email/$limit/$offset/ASC");
+                                    echo base_url("usuarios/listar/email/$limit/$perpage/ASC");
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
                             </a></th>
-                        <th><a href='<?php echo base_url("usuarios/listar/instituicao/$limit/$offset"); ?>'>Instituição
+                        <th><a href='<?php echo base_url("usuarios/listar/instituicao/$limit/$perpage"); ?>'>Instituição
                             <?php 
                                 if(isset($img) && $img == 'instituicao'){
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/instituicao/$limit/$offset/DESC");
+                                    echo base_url("usuarios/listar/instituicao/$limit/$perpage/DESC");
                                     echo '"<i class="icon-chevron-down"></i>';
                                     
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/instituicao/$limit/$offset/ASC");
+                                    echo base_url("usuarios/listar/instituicao/$limit/$perpage/ASC");
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
                             </a></th>
-                        <th><a href='<?php echo base_url("usuarios/listar/tipo/$limit/$offset"); ?>'>Tipo
+                        <th><a href='<?php echo base_url("usuarios/listar/tipo/$limit/$perpage"); ?>'>Tipo
                             <?php 
                                 if(isset($img) && $img == 'tipo'){
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/tipo/$limit/$offset/DESC");
+                                    echo base_url("usuarios/listar/tipo/$limit/$perpage/DESC");
                                     echo '"<i class="icon-chevron-down"></i>';
                                       
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/tipo/$limit/$offset/ASC");
+                                    echo base_url("usuarios/listar/tipo/$limit/$perpage/ASC");
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
                             </a></th>
-                        <th><a href='<?php echo base_url("usuarios/listar/status/$limit/$offset"); ?>'>Status
+                        <th><a href='<?php echo base_url("usuarios/listar/status/$limit/$perpage"); ?>'>Status
                             <?php 
                                 if(isset($img) && $img == 'status'){
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/status/$limit/$offset/DESC");
+                                    echo base_url("usuarios/listar/status/$limit/$perpage/DESC");
                                     echo '"<i class="icon-chevron-down"></i>';
                                     
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/status/$limit/$offset/ASC");
+                                    echo base_url("usuarios/listar/status/$limit/$perpage/ASC");
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
@@ -161,7 +165,7 @@
                         <td><?php 
                                 switch ($u->credencial){
                                     default:
-                                    break;    
+                                        break;    
 
                                     case CREDENCIAL_USUARIO_COMUM:
                                         echo CREDENCIAL_USUARIO_COMUM . ' - Comum';
@@ -179,6 +183,7 @@
                         <td><?php 
                             switch ($u->status){
                                     default :
+                                        break;
 
                                     case STATUS_USUARIO_EXCLUIDO:
                                         echo  STATUS_USUARIO_EXCLUIDO. ' - Excluido';
@@ -201,7 +206,6 @@
                                 $inativo = STATUS_USUARIO_INATIVO;
                                 $bloqueado = STATUS_USUARIO_BLOQUEADO;
                                 $excluido = STATUS_USUARIO_EXCLUIDO;
-                                $dadosPessoais = STATUS_DADOS_PESSOAIS;
                                 $admin = CREDENCIAL_USUARIO_ADMIN;
                                 $superadmin = CREDENCIAL_USUARIO_SUPERADMIN;
                                 $comum = CREDENCIAL_USUARIO_COMUM;
@@ -445,13 +449,16 @@
                         alert('Selecione outra opção');  
                     break;
 
-                    case 'dados_pessoais':
+                    case 'dados_pessoais':      
+                        var id = jQuery(this).closest("tr.listar_usuario").attr("id").split("-");
+                        id = id[1];
+                        
                         jQuery.ajax({
-                            url: "<?php echo base_url("usuario_dados_pessoais.php"); ?>-id=" + id,
+                            url: "<?php echo base_url("usuarios/dados_pessoais/"); ?>/" + id,
                             dataType: "html"
                         }).done(function(data){
                             jQuery("#myModal").html(data);
-                            jQuery("#myModal").modal("show");
+                            jQuery("#myModal").modal();
                         });
                         //não está funcionando!
                     break;

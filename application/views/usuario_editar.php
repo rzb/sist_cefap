@@ -185,7 +185,7 @@
 			</div>
 			<div class="form-actions">
             	<input type="submit" class="btn btn-primary" name="submit" value="Confirmar" />
-            	<input type="button" class="btn" name="cancelar" value="Cancelar" onclick="window.location.href='index'"/>
+            	<input type="button" class="btn" name="cancelar" value="Cancelar" onclick="window.location.href='../listar'"/>
             </div>
 			
 <?php	echo form_close();	?>

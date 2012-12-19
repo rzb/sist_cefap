@@ -1,6 +1,10 @@
+<!-- INICIO DOS DADOS PESSOAIS
+<div id="myModal" class="modal hide fade">
+    <!-- dialog contents -->
     <div class="modal-header">
+        <h3 id="generic-modalLabel">teste</h3>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h1><?php echo $user->username; ?></h1>
+        <h2>Fulano de Tal</h2>
         <div class="btn-right">
             <input type="submit" class="btn" name="submit" value="Log de acesso">
             <input type="button" class="btn" name="cancelar" value="Escrever Mensagem">
@@ -9,18 +13,18 @@
         <div class="user_info">
 
             <div class="row">
-                <div class="span2">Status: <?php echo $user->status; ?></div>
-                <div class="span2">Usuário: <?php echo $user->nome; ?></div>             
-                <div class="span2">Cadastrado em: <?php echo $user->created; ?> </div>
-                <div class="span2">Username: <?php echo $user->username; ?></div>
+                <div class="span2">Status:</div>
+                <div class="span2">Usuário:</div>             
+                <div class="span2">Cadastrado em:  </div>
+                <div class="span2">Username: </div>
             </div>
             <br>
             <div class="row">
-                <div class="span5">Chave de Ativa&ccedil;&atilde;o: <?php echo $user->key; ?></div>
+                <div class="span5">Chave de Ativa&ccedil;&atilde;o:</div>
             </div>
             <br>
             <div class="row">
-                <div class="span4">&Uacuteltimo Acesso:  </div>
+                <div class="span4">&Uacuteltimo Acesso:  06/11/2012 14:10</div>
             </div>
        </div>
     </div>
@@ -29,41 +33,41 @@
         <div class="form-actions">
             <h2><p>Dados Pessoais</p></h2>
             <div class="btn-right">
-                <button type="button" class="btn pull-right" name="submit" onClick="<?php base_url("usuarios/editar/$user->id")?>">Editar</button>
+                <input type="submit" class="btn pull-right" name="submit" value="Editar">
             </div>
         </div>
 
         <div class="user_info">  
             <div class="row">
-                <div class="span2">Data de Nascimento: <?php echo $user->data_nascimento; ?></div>
+                <div class="span2">Data de Nascimento: </div>
             </div>
             <br>
             <div class="row">
-                <div class="span2">CPF: <?php echo $user->cpf; ?></div>
+                <div class="span2">CPF: </div>
             </div>
             <br>
             <div class="row">
-                <div class="span2">E-mail: <a href="mailto:<?php echo $user->email; ?>"><?php echo $user->email; ?></a></div>
+                <div class="span2">E-mail: <a href="mailto:"></a></div>
             </div>
             <br>
             <div class="row">
-                <div class="span2">Endere&ccedil;o: <?php echo $user->endereco; ?></div>
+                <div class="span2">Endere&ccedil;o: </div>
             </div>
             <br>
             <div class="row">
-                <div class="span2">Institui&ccedil;&atilde;o: <?php echo $user->instituicao; ?></div>
+                <div class="span2">Institui&ccedil;&atilde;o: </div>
             </div>
             <br>
             <div class="row">
-                <div class="span2">Departamento: <?php echo $user->departamento; ?></div>
+                <div class="span2">Departamento:</div>
             </div>
             <br>
             <div class="row">
-                <div class="span2">Telefone: <?php echo $user->telefone; ?></div>
+                <div class="span2">Telefone: </div>
             </div>
             <br>
             <div class="row">
-                <div class="span2">Celular: <?php echo $user->celular; ?></div>
+                <div class="span2">Celular:</div>
             </div>
             <br>
             <div class="row">
@@ -220,7 +224,9 @@
             </div>
         </div>
     </div>
+    
     <div class="modal-footer">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Fechar</button>
+        &nbsp;
     </div>
-
+</div>-->
+<!-- FINAL DOS DADOS PESSOAIS-->

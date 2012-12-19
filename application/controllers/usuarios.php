@@ -27,17 +27,17 @@ class Usuarios extends CI_Controller{
         if ( $this->uRole == CREDENCIAL_USUARIO_COMUM) {
                redirect('main');
             }
-            else{ //Só usuários com credencial de ADMIN ou SUPERAMDIN pode visualizar.
+            else{ //Só usuários com credencial de ADMIN ou SUPERAMDIN podem visualizar.
                 $total = $this->db->count_all("usuarios");
 
                 if ($total > 0 ){
                     $order = $this->uri->segment(3, NULL); #ordena de acordo com a opção escolhida pelo usuário
                     $limit = $this->uri->segment(4, 5); #limite de resultados por página
-                    $page = $this->uri->segment(5, 1); //número da página 
+                    $npage = $this->uri->segment(5, 0); //número da página 
                     $exib = $this->uri->segment(6,'CRESC'); //segmento que vai passar o valor de CRES ou DECRES.
                     
                     
-                    $offset = ($page - 1) * $limit; //calcula o offset para exibir os resultados de acordo com a página que o usuário clicar
+                    $offset = ($npage - 1) * $limit; //calcula o offset para exibir os resultados de acordo com a página que o usuário clicar
                     if($offset <= 0){
                         $offset = 1;
                     }                    
@@ -58,14 +58,15 @@ class Usuarios extends CI_Controller{
 
                     }else{
                         $user->order_by($order, $exib);
-                        $data['img'] = $order;
                     }
+                    
                     $user->get();
 
+                    $data['img'] = $order;
                     $data['user'] = $user; 
                     $data['limit'] = $limit;
                     $data['offset'] = $offset;
-                    $data['perpage'] = $page;
+                    $data['perpage'] = $npage;
                 
                 }else{
                     $data['msg'] = '<strong>Nenhum usuário encontrado.</strong>';
@@ -230,6 +231,8 @@ class Usuarios extends CI_Controller{
 			$u->where('key', $key)->update('status', STATUS_USUARIO_ATIVO);
 				
 			$data['title'] = "Cadastro Confirmado";
+                        $data['msg'] = 'Usuário ativado com sucesso! <br><br>Dentro de alguns instantes você será redirecionado para a página inicial.';
+                        $data['msg_type'] = "alert-success";
 			// @TODO preparar $data['msg'] para ser mostrada na view
 			$this->load->view('usuario_ativar', $data);
 				
@@ -440,7 +443,7 @@ class Usuarios extends CI_Controller{
     
     public function dados_pessoais(){
         
-        /*$id = $this->uri->segment(3);
+        $id = $this->uri->segment(3);
         
         $user = new Usuario();
         $user->where('id', $id);
@@ -448,7 +451,7 @@ class Usuarios extends CI_Controller{
             
         $data['user'] = $user;
         
-        $this->load->view('usuario_dados_pessoais');*/
+        $this->load->view('usuario_dados_pessoais', $data);
     }
     
     public function login() {
