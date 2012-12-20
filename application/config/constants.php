@@ -92,6 +92,9 @@
 	define("TIPO_CAMPO_PASSWORD", 6);
 
 	define("INSTITUICOES_FOMENTO", serialize(array("Fapesp", "CNPq", "CAPES", "FINEP", "Outros")));
+        
+        define("EMAIL_FROM", 'thais.dias@trajettoria.com');
+        define("EMAIL_NAME",'Thais');
 
 /*
 |--------------------------------------------------------------------------

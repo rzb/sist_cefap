@@ -111,7 +111,7 @@ class Usuarios extends CI_Controller{
         // default view
         $view = 'usuario_adicionar';
 		
-		if ( $this->input->post('submit') ) {
+		if($this->input->post('submit')){
 			/* 
 			 * 1- gravar usuário no banco
 			 * 2- enviar e-mail de confirmação
@@ -164,22 +164,20 @@ class Usuarios extends CI_Controller{
 			if( !$u->save() ) { // error on save
 				
 				if ( $u->valid ) { // validation ok; database error on insert or update
-					
 					$data['msg'] = MSG_ERRO_BD;
 					$data['msg_type'] = 'error';
-					
+                                        
 				} else { // validation error
-					
 					$data['msg'] = $u->error->string;
-					$data['msg_type'] = 'error';
-					
+					$data['msg_type'] = 'error';	
 				}
 				
 			} else { // success
 				
 				$this->load->library('email');
 				
-				$this->email->from('thais.dias@trajettoria.com', 'Thais');
+                                
+				$this->email->from(EMAIL_FROM, EMAIL_NAME);
 				$this->email->to($u->email);
 				
 				$this->email->subject('Confirmação de Cadastro');
@@ -374,23 +372,20 @@ class Usuarios extends CI_Controller{
                         $data['msg'] = 'Sem permissão para excluir este usuário';
                         $data['msg_type'] = 'alert-error';
                     }
-                    break;
+                break;
                 
                 case STATUS_USUARIO_BLOQUEADO:
                     !($u->where_in('id',$id)->update('status', $option)) ? $erros++ : NULL;
-                    break;
+                break;
                     
                 case STATUS_USUARIO_ATIVO:
                     !($u->where_in('id',$id)->update('status', $option)) ? $erros++ : NULL;
-                    break;
+                break;
                 
                 case STATUS_USUARIO_INATIVO:
                     !($u->where_in('id',$id)->update('status', $option)) ? $erros++ : NULL;
-                    break;
+                break;
                 
-                case STATUS_DADOS_PESSOAIS:
-                    redirect(base_url('usuarios/dados_pessoais')); 
-                    break;
             }
             if($erros > 0){
                 $data['msg'] = 'Erro ao atualizar dados';
@@ -437,8 +432,63 @@ class Usuarios extends CI_Controller{
             }
     }
     public function lembrete_senha(){
-        
-        $this->load->view('usuario_lembrete_senha');
+            if($this->input->post(NULL, TRUE)){
+                $post = $this->input->post(NULL, TRUE); // returns all POST items with XSS filter
+                
+                $lembrete = $post['lembrete_senha'];
+                                
+                //CRIANDO SENHA ALEATÓRIA
+                $CaracteresAceitos = 'abcdefghijklmnopqrstxywzABCDEFGHIJKLMNOPQRSTZYWZ0123456789'; 
+                $max = strlen($CaracteresAceitos)-1;
+                $password = null;
+                
+                for($i=0; $i < 8; $i++) { 
+                   $password .= $CaracteresAceitos{mt_rand(0, $max)}; 
+                }
+                
+                $pass = md5($password);
+
+                $username = new Usuario();
+                $user_Email = new Usuario();
+                
+                $username->select('username, nome, email, senha')->where('username', $lembrete)->get();
+                
+                $user_Email->select('username, nome, email, senha')->where('email', $lembrete)->get();
+                
+                //VERIFICA SE A INFORMAÇÃO DIGITADA EXISTE NO BANCO DE DADOS
+                if($username->username != $lembrete && $user_Email->username != $lembrete && $username->email != $lembrete && $user_Email->email != $lembrete){
+                    $data['msg'] = 'Informação digitada não confere no banco de dados.<br>Por favor, verifique se seu nome de usuário ou e-mail foi digitado corretamente.';
+                    $data['msg_type'] = 'alert-error';
+                }else{
+                    
+                    $erros = 0;
+                    !($username->where('username',$lembrete)->update('senha', $pass)) ? $erros++ : NULL;
+                    !($user_Email->where('email',$lembrete)->update('senha', $pass)) ? $erros++ : NULL;
+
+                    if($erros > 0){
+                        $data['msg'] = 'Erro ao atualizar dados';
+                        $data['msg_type'] = 'alert-error';
+                    }else{
+
+                    //ENVIANDO EMAIL COM A SENHA NOVA
+                    $this->load->library('email');
+
+                     $this->email->from(EMAIL_FROM, EMAIL_NAME);
+                     $this->email->to($username->email.$user_Email->email);
+
+                     $this->email->subject('Nova senha para acesso ao CEFAP');
+                     $this->email->message('Olá, ' .$username->nome.$user_Email->nome. '! Criamos uma nova senha de acesso ao sistema.<br><br><strong>Seu nome de usuário é:</strong> '.$username->username.$user_Email->username.'<br><strong>Sua nova senha é:</strong> '. $password.'<br><br> Acesse o sistema através do link e mude sua senha no primeiro acesso: <a href="' .base_url('main'). '">clique aqui</a>.');
+
+                     $this->email->send();
+                     
+                     // MENSAGEM DE SUCESSO EXIBIDA NA VIEW
+                     $data['msg'] = 'Senha alterada com sucesso! Por favor, verifique seu email cadastrado para obter a nova senha.';
+                     $data['msg_type'] = 'alert-success';
+                };
+            }
+        }
+        $data['title'] = "Lembre de Senha";
+        $this->load->view('usuario_lembrete_senha', $data);
     }
     
     public function dados_pessoais(){

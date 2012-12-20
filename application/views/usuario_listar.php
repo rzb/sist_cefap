@@ -83,7 +83,8 @@
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
-                            </a></th>
+                            </a>
+                        </th>
                         <th><a href='<?php echo base_url("usuarios/listar/nome/$limit/$perpage"); ?>'>Nome
                             <?php 
                                 if(isset($img) && $img == 'nome'){
@@ -96,7 +97,8 @@
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>                  
-                            </a></th>
+                            </a>
+                        </th>
                         <th><a href='<?php echo base_url("usuarios/listar/email/$limit/$perpage"); ?>'>E-mail
                             <?php 
                                 if(isset($img) && $img == 'email'){
@@ -109,7 +111,8 @@
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
-                            </a></th>
+                            </a>
+                        </th>
                         <th><a href='<?php echo base_url("usuarios/listar/instituicao/$limit/$perpage"); ?>'>Instituição
                             <?php 
                                 if(isset($img) && $img == 'instituicao'){
@@ -122,20 +125,22 @@
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
-                            </a></th>
-                        <th><a href='<?php echo base_url("usuarios/listar/tipo/$limit/$perpage"); ?>'>Tipo
+                            </a>
+                        </th>
+                        <th><a href='<?php echo base_url("usuarios/listar/credencial/$limit/$perpage"); ?>'>Credencial
                             <?php 
-                                if(isset($img) && $img == 'tipo'){
+                                if(isset($img) && $img == 'credencial'){
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/tipo/$limit/$perpage/DESC");
+                                    echo base_url("usuarios/listar/credencial/$limit/$perpage/DESC");
                                     echo '"<i class="icon-chevron-down"></i>';
                                       
                                     echo '<a href="';
-                                    echo base_url("usuarios/listar/tipo/$limit/$perpage/ASC");
+                                    echo base_url("usuarios/listar/credencial/$limit/$perpage/ASC");
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
-                            </a></th>
+                            </a>
+                        </th>
                         <th><a href='<?php echo base_url("usuarios/listar/status/$limit/$perpage"); ?>'>Status
                             <?php 
                                 if(isset($img) && $img == 'status'){
@@ -148,7 +153,8 @@
                                     echo '"<i class="icon-chevron-up"></i>';
                                 } 
                             ?>
-                            </a></th>
+                            </a>
+                        </th>
                         <th>Opções</th>
                 </tr>
         </thead>
@@ -259,10 +265,7 @@
                                             echo ("usuarios/mudar_status/$u->id/$bloqueado ");
                                             echo '">Bloquear</option>';    
 
-                                         if($u->status == STATUS_USUARIO_ATIVO || $u->status == STATUS_USUARIO_INATIVO || $u->status == STATUS_USUARIO_BLOQUEADO) 
-                                            echo "<option value="; 
-                                            echo ("usuarios/mudar_status/$u->id/$excluido "); 
-                                            echo '">Excluir</option>';
+                                         
                                         }
                                     }                                
                                 ?>

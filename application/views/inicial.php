@@ -63,6 +63,7 @@
                             <input type="password" name="senha" /><br>
                             <div class="inputCenter">
                                 <input type="submit" name="submit" value="Entrar" />
+                                <a href="usuarios/lembrete_senha">Esqueci minha Senha</a>
                             </div>
                     <?php echo form_close(); ?>                 
             </div>
