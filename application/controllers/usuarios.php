@@ -37,6 +37,11 @@ class Usuarios extends CI_Controller{
                     $exib = $this->uri->segment(6,'CRESC'); //segmento que vai passar o valor de CRES ou DECRES.
                     
                     
+                    if($limit == 'usuarios' && $npage == 'adicionar'){
+                        redirect('usuarios/adicionar');
+                    }
+                    
+                    
                     $offset = ($npage - 1) * $limit; //calcula o offset para exibir os resultados de acordo com a página que o usuário clicar
                     if($offset <= 0){
                         $offset = 1;
@@ -52,7 +57,7 @@ class Usuarios extends CI_Controller{
                             $user->select('id, nome, email, tipo, status, instituicao, credencial')->where_not_in('status', STATUS_USUARIO_EXCLUIDO)->limit($limit, $offset); 
                         break;
                         }
-                        
+                    //ordena de acordo com a opção que o usuário escolher    
                     if(empty($order)){
                         $user->order_by('id', $exib);
 
@@ -92,17 +97,8 @@ class Usuarios extends CI_Controller{
         
     }
     
-    public function adicionar(){/* *
-		 * cadastrar usuário com credencial de usuário "comum" e status "inativo"
-		 * enviar e-mail de confirmação de cadastro e após confirmado alterar status para "ativo"
-		 * username deve ser único mesmo dentro os já excluídos do sistema
-		 * campo de selação de credencial só é mostrado para usuários superadministradores
-		 * um superadministrador pode fazer o cadastro de quantos usuários quiser, enquanto usuários comuns e administradores só podem registrar a si mesmos
-		 * uma vez registrados e logados, comuns e administradores não terão mais acesso ao formulário de cadastro
-		 * */
+    public function adicionar(){
 		
-		// dump unauthorized users
-        
                 //checa se o usuário já está logado e qual a credencial. Caso seja admin ou comum, eles não podem adicionar novos usuários 
                 if ($this->session->userdata('logged_in')){
                     if ( $this->uRole == CREDENCIAL_USUARIO_ADMIN || $this->uRole == CREDENCIAL_USUARIO_COMUM )
@@ -189,29 +185,11 @@ class Usuarios extends CI_Controller{
 				
                                 $data['msg']        = 'Novo usário ' .$u->username. ' cadastrado com sucesso!';
                                 $data['msg_type']   = 'success';
-                
-                
-
-                
-				// if user is just a guest (not logged in thus registering himself) he can't do this more than once
-				//if ( ! isset($this->currUser->credencial) ) {
-                                /*
-                                * @TODO talvez implementar uma view 'sucesso' que renderize somente a mensagem de sucesso
-                                * e redirecione automaticamente via js para um controller pré-definido aqui, sendo assim reutilizável para qualquer ação bem sucedida?
-                                * *DONE*
-                                */  
-				   // $data['msg']        = 'Obrigado por ter se registrado! Será lhe enviado um e-mail para que você confirme o cadastro.';
-				    //$data['msg_type']   = 'success';
-				   // $data['redirTo']	= '/main/';
-                                // change view to success page
-                                  // $view = 'success';
-				//}
-				
+                	
 			}
 			
                     }
 		$data['title'] = 'Cadastro de Usuário';
-		//$data['currUser'] = $this->currUser;
 		$this->load->view($view, $data);
 		
 	}

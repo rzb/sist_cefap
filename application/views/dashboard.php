@@ -2,11 +2,26 @@
     $this->load->view('header'); 
 ?>
 <div id="main_content">
-    
+    <?php echo set_breadcrumb(); 
+        echo '<br><br>';
+        if(isset($msg) && isset($msg_type)){ ?>
+           <div class="alert <?php echo $msg_type?>" id="alert-success">
+               <?php echo $msg; ?>
+           </div> 
+        <?php 
+
+        }else{
+            echo ('');
+
+        }
+        $u = $this->session->userdata('credencial');
+        $userId = $this->session->userdata('id');
+    ?>
     <!-- Se o usuário não for Admin ou SuperAdmin não terá permissão para visualizar a class 'top-->
-    <div class="top">
-        <?php echo (isset($msg) && isset($msg_type) )? msg($msg, $msg_type) : ''; ?> 
-        <h1>Estatísticas do Sistema</h1>
+    <?php if($u == CREDENCIAL_USUARIO_SUPERADMIN || $u == CREDENCIAL_USUARIO_ADMIN){?>
+         <div class="top">
+        
+            <h1>Estatísticas do Sistema</h1>
 
             <select id="selectDashboard">
                 <option>Acessos</option>
@@ -16,16 +31,19 @@
                 <option>Novos cadastro de usuários</option>
                 <option>Hora de uso das facilities</option>
             </select>
-    </div>
+        </div>
+    <?php } ?>
+    
+    
     <br>
     <div class="middle-left">
         <h1>Acesso Rápido</h1>
 
         <div class="pull-left">
             <ul>
-                <li><a href="<?php echo base_url("usuarios/editar/"); ?>">Editar meu dados cadastrais</a></li>
-                <li><a href="<?php echo base_url('usuarios/trocar_senha'); ?>">Trocar minha senha de acesso ao sistema</a></li> <!-- Tem que passar a senha do usuário pela URL para trocar senha. -->
-                <li>Editar as configurações do sistema</li>
+                <li><a href="<?php echo base_url("usuarios/editar/$userId"); ?>">Editar meu dados cadastrais</a></li>
+                <li><a href="<?php echo base_url("usuarios/trocar_senha/$userId"); ?>">Trocar minha senha de acesso ao sistema</a></li>
+                <li><a href="<?php echo base_url("configuracoes/editar"); ?>">Editar as configurações do sistema</a></li>
                 <li><a href="<?php echo base_url('usuarios/listar'); ?>">Listar</a></li>
             </ul>
         </div>

@@ -5,22 +5,33 @@
 <div id="breadcrumbs"><?php echo set_breadcrumb();	?></div>
     
 <?php
-    if(isset($msg) && isset($msg_type)){ ?>
-       <div class="alert <?php echo $msg_type?>" id="alert-success">
-           <button type="button" class="close" data-dismiss="alert">×</button>
-           <?php echo $msg; ?>
-       </div> 
- <?php 
+    if(isset($msg) && isset($msg_type)){ 
+?>
+    <div class="alert <?php echo $msg_type?>" id="alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+<?php 
+    echo $msg; 
+?>
+    </div> 
+<?php 
  
     }else{
         echo ('');
 
     }
 
- ?> 
-
-<?php	echo form_open('usuarios/editar/' .$u->id, array('class' => 'form-horizontal', 'id' => 'usuario_editar')); ?>
-			
+    echo form_open('usuarios/editar/' .$u->id, array('class' => 'form-horizontal', 'id' => 'usuario_editar')); 
+?>
+<style>
+    .informacao p {font-size: 16px; text-align: center; margin: 30px 0 30px 0;}
+    #size-medium {font-size: 13px;}
+    .span-ex-end {margin-top: 5px; margin-left: 13px; color: #B5B1B8;}
+</style>		
+                        <div class="informacao">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vestibulum, risus a suscipit ultrices, velit velit blandit neque, non egestas elit urna at est. Pellentesque tincidunt orci erat, in blandit mauris. 
+                                Aliquam tellus lacus, iaculis ut vestibulum a, blandit tincidunt justo. Aliquam facilisis ante imperdiet massa feugiat ac gravida ipsum elementum. </p>
+                            <p id='size-medium'><strong>*Todos os campos são de preenchimento obrigatório</strong></p>
+                        </div>
 			<div class="control-group">
                             <label class="control-label" for="username">Username</label>
                             <div class="controls">
@@ -44,7 +55,8 @@
 			<div class="control-group">
                             <label class="control-label" for="endereco">Endereço</label>
                             <div class="controls">
-                                    <input type="text" name="endereco" value="<?php echo $u->endereco; ?>"/>
+                                    <input type="text" name="endereco" value="<?php echo $u->endereco; ?>"/><br>
+                                    <span class="span-ex-end">Ex: Av. Brig. Faria Lima, 400 - ap.35</span>
                             </div>
 			</div>
 

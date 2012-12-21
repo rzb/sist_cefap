@@ -19,6 +19,8 @@
    .btn-right {margin-left: 550px;}
    .btn-right-creditos {margin-left: 389px; margin-top: -30px;}
    .modal th {background-color: #ccc}
+   #btn-right-listar{float:right; margin-right: 20px;}
+   
 </style>
 
 <div id="myModal" class="modal hide fade">
@@ -66,6 +68,9 @@
             <li><a href="#"><i class="icon-forward"></i></a></li>
             <li><a href="#"><i class="icon-fast-forward"></i></a></li>
     </ul>
+    <?php if($this->uRole == CREDENCIAL_USUARIO_SUPERADMIN){?>
+         <input type="submit" class="btn btn-primary" id="btn-right-listar" name="submit" value="Adicionar" onclick="window.location.href='../usuarios/adicionar'" />
+    <?php } ?>      
 <table class="table">
     <caption >Lista de Usuários</caption>
         <thead>
@@ -357,7 +362,8 @@
            <?php } ?>  
            </tbody>
     </table>
-
+         
+    <?php if($this->uRole == CREDENCIAL_USUARIO_SUPERADMIN){?>
     <div class="select">
         <p>Com marcados:
             <select class="change_option" id="comMarcados">
@@ -374,6 +380,9 @@
             </select>
         </p>
     </div>
+    <?php } ?>
+
+    
 
     <?php 
     //require_once 'usuario_dados_pessoais.php';

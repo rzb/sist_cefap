@@ -6,6 +6,7 @@
   #email_SMTPSAuth {margin-right: 3px;}
 </style>
 <div id="main_content">	
+    <?php echo set_breadcrumb(); ?>
     <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultricies molestie molestie. Curabitur aliquam ligula sit amet lectus malesuada sed elementum nisi vulputate. 
            Etiam tempor laoreet neque id sodales. Suspendisse potenti. Morbi sed ante in justo vestibulum rhoncus. Pellentesque tincidunt molestie pretium.
@@ -217,10 +218,9 @@
                     <input type="text" name="rss_fonte2" id="rss_fonte2" value="<?php echo empty( $rss_fonte2->valor ) ? $rss_fonte2->valor_padrao : $rss_fonte2->valor; ?>">
                 </div>    
             </div>
-            <div class="control-group">
-                <div class="controls">
-                    <input type="submit" name="submit" value="Salvar">
-                    <input type="submit" name="submit" value="Cancelar" onclick="<?php base_url('usuarios/listar'); ?>">
+            <div class="form-actions">
+                    <input type="submit" name="submit" value="Salvar" class="btn btn-primary">
+                    <input type="submit" name="submit" value="Cancelar" class="btn" onclick="<?php base_url('usuarios/listar'); ?>">
                 </div>    
             </div>
     </form>

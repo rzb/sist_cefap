@@ -97,8 +97,6 @@ class Configuracoes extends CI_Controller{
             
         }else{
             $data['title'] = 'Edição de Configurações';
-            $data['msg'] = 'Formulário não submetido!';
-            $data['msg_type'] = 'alert-error'; 
          }
          $data['title'] = 'Editar Configurações';
          $this->load->view('configuracoes_editar', $data);

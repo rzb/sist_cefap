@@ -43,7 +43,7 @@
                     Pellentesque tincidunt orci erat, in blandit mauris. Aliquam tellus lacus, iaculis ut vestibulum a, blandit tincidunt justo.</p>
                 <br>
                 <div class="inputCenter">
-                    <input type="submit" name="submit" value="Preencher formulário de Cadastro" onclick="window.location.href='usuarios/adicionar/5'"/>
+                    <input type="submit" name="submit" value="Preencher formulário de Cadastro" onclick="window.location.href='usuarios/adicionar'"/>
                 </div>
             </div> 
 
@@ -61,9 +61,9 @@
                             <input type="text" name="username" /><br><br>
                             <label for="senha">Senha</label>
                             <input type="password" name="senha" /><br>
-                            <div class="inputCenter">
-                                <input type="submit" name="submit" value="Entrar" />
-                                <a href="usuarios/lembrete_senha">Esqueci minha Senha</a>
+                            <div class="inputCenter"><br>
+                                <input type="submit" name="submit" value="Entrar" /><br><br>
+                                <a href="usuarios/lembrete_senha">Esqueceu seu username ou senha</a>
                             </div>
                     <?php echo form_close(); ?>                 
             </div>
