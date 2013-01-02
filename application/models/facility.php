@@ -1,49 +1,46 @@
 <?php
-class Facility extends Datamapper{
-    
-    public $model = 'facility';
-    public $table = 'facilities';
-    public $created_field = 'created';
-    public $updated_field = 'modified';
-    
-    public $has_one = array();
-    
+
+class Facility extends Datamapper {
+   
+	public $table = 'facilities';
+   
+	public $has_one = array();
+   
     public $has_many = array(
-        'usuario'      => array(			// in the code, we will refer to this relation by using the object name 'book'
-                'class'         => 'usuario',			// This relationship is with the model class 'book'
+        'usuario'      => array(
+                'class'         => 'usuario',
                 'other_field'   => 'fclts'
          ),
-        
-        'coordenadores'      => array(			// in the code, we will refer to this relation by using the object name 'book'
-                'class'         => 'usuario',			// This relationship is with the model class 'book'
-                'other_field'   => 'fclts_coordenadas'
+       
+        'coordenadores'      => array(
+                'class'         => 'usuario',           
+                'other_field'   => 'fclts_coordenadas',
+                'join_self_as'	=> 'facility_id',
+                'join_other_as'	=> 'usuario_id',
+                'join_table'	=> 'coordenadores_facilities'
          ),
-        
-        'logs'      => array(			// in the code, we will refer to this relation by using the object name 'book'
-                'class'         => 'log',			// This relationship is with the model class 'book'
+       
+        'logs'      => array(
+                'class'         => 'log',        
                 'other_field'   => 'facility'
          ),
-        
-        'agendamentos'      => array(			// in the code, we will refer to this relation by using the object name 'book'
-                'class'         => 'agendamento',			// This relationship is with the model class 'book'
+
+        'agendamentos'      => array(
+                'class'         => 'agendamento',     
                 'other_field'   => 'facility'
          ),
-        
-        'formularios'      => array(			// in the code, we will refer to this relation by using the object name 'book'
-                'class'         => 'formulario',			// This relationship is with the model class 'book'
+       
+        'formularios'      => array(
+                'class'         => 'formulario',   
                 'other_field'   => 'facilities'
          ),
-        
-        'periodos'      => array(			// in the code, we will refer to this relation by using the object name 'book'
-                'class'         => 'perdiodo',			// This relationship is with the model class 'book'
+       
+        'periodos'      => array(
+                'class'         => 'perdiodo',
                 'other_field'   => 'facility'
          )
     );
-    
-    function __construct(){
-        
-        parent:: __construct();
-    }
-    
+   
 }
+
 ?>

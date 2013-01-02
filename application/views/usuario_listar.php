@@ -163,7 +163,7 @@
                         <th>Opções</th>
                 </tr>
         </thead>
-        <tfoot></tfoot>
+        
         <tbody>
         <?php foreach($user as $u){ ?>
 

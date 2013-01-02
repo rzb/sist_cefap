@@ -18,7 +18,7 @@
         $userId = $this->session->userdata('id');
     ?>
     <!-- Se o usuário não for Admin ou SuperAdmin não terá permissão para visualizar a class 'top-->
-    <?php if($u == CREDENCIAL_USUARIO_SUPERADMIN || $u == CREDENCIAL_USUARIO_ADMIN){?>
+    <?php if($u == CREDENCIAL_USUARIO_SUPERADMIN || $u == CREDENCIAL_USUARIO_ADMIN){ ?>
          <div class="top">
         
             <h1>Estatísticas do Sistema</h1>
@@ -43,16 +43,47 @@
             <ul>
                 <li><a href="<?php echo base_url("usuarios/editar/$userId"); ?>">Editar meu dados cadastrais</a></li>
                 <li><a href="<?php echo base_url("usuarios/trocar_senha/$userId"); ?>">Trocar minha senha de acesso ao sistema</a></li>
-                <li><a href="<?php echo base_url("configuracoes/editar"); ?>">Editar as configurações do sistema</a></li>
+                <?php 
+                
+                if($u == CREDENCIAL_USUARIO_COMUM){ ?>
+                    <li><a href="<?php echo base_url(""); ?>">Gerenciar meus projetos científicos</a></li>
+                <?php } 
+                
+                if($u == CREDENCIAL_USUARIO_SUPERADMIN){ ?>
+                    <li><a href="<?php echo base_url("configuracoes/editar"); ?>">Editar as configurações do sistema</a></li>
+                <?php } 
+                
+                if($u == CREDENCIAL_USUARIO_ADMIN){ ?>
+                    <li><a href="<?php echo base_url(""); ?>">Relatório de uso das facilities</a></li>
+                <?php } ?>    
+                
+                
                 <li><a href="<?php echo base_url('usuarios/listar'); ?>">Listar</a></li>
             </ul>
         </div>
         <div class="hr">&nbsp;</div>
         <div class="pull-right">
             <ul>
-                <li>Criar novo backup</li>
-                <li>Editar conteúdo da ajuda aos usuários</li>
-                <li>Boletos emitidos</li>                   
+                
+                <?php 
+                
+                if($u == CREDENCIAL_USUARIO_COMUM){ ?>
+                    <li><a href="<?php echo base_url(""); ?>">Conhecer melhor as Facilities</a></li>
+                    <li><a href="<?php echo base_url(""); ?>">FAQ - Perguntas mais frequentes</a></li>
+                    <li><a href="<?php echo base_url(""); ?>">Obter extrato de créditos</a></li> 
+                <?php } 
+                
+                if($u == CREDENCIAL_USUARIO_SUPERADMIN){ ?>    
+                    <li><a href="<?php echo base_url(""); ?>">Criar novo backup</a></li>
+                    <li><a href="<?php echo base_url(""); ?>">Editar conteúdo da ajuda aos usuários</a></li>
+                    <li><a href="<?php echo base_url(""); ?>">Boletos emitidos</a></li>         
+                <?php } 
+                
+                if($u == CREDENCIAL_USUARIO_ADMIN){ ?>    
+                    <li><a href="<?php echo base_url(""); ?>">Agendamentos solicitados</a></li>
+                    <li><a href="<?php echo base_url(""); ?>">Download de relatórios já gerados</a></li>
+                    <li><a href="<?php echo base_url(""); ?>">Escrever nova mensagem</a></li>         
+                <?php } ?>
             </ul>
         </div>
         
